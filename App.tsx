@@ -1,5 +1,5 @@
 import { StyleSheet, Text, View } from 'react-native'
-import React from 'react'
+import React, { useState } from 'react'
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
@@ -23,17 +23,19 @@ import FinishedWorkout from './Components/Main/FinishedWorkout';
 import Chart from './Components/Global/Chart';
 import WorkoutTracker from './Components/WorkOut/WorkoutTracker';
 import FullBodyWorkout from './Components/WorkOut/FullBodyWorkout';
+import AddSchedule from './Components/WorkOut/AddSchedule';
 
 
 
 const App = () => {
   return (
     <NavigationContainer>
-    <Stack.Navigator initialRouteName='FullBodyWorkout'>
+    <Stack.Navigator initialRouteName='Chart'>
 
       <Stack.Screen name="SignUp" component={SignUp}  options={{headerShown:false}}/>
       <Stack.Screen name="WorkoutTracker" component={WorkoutTracker}  options={{headerShown:false}}/>
       <Stack.Screen name="FullBodyWorkout" component={FullBodyWorkout}  options={{headerShown:false}}/>
+      <Stack.Screen name="AddSchedule" component={AddSchedule}  options={{headerShown:false}}/>
       <Stack.Screen name="BottomNavigation" component={BottomNavigation}  options={{headerShown:false}}/>
       <Stack.Screen name="Login" component={Login}  options={{headerShown:false}}/>
       <Stack.Screen name="Welcome" component={Welcome}  options={{headerShown:false}}/>
