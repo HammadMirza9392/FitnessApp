@@ -77,8 +77,18 @@ const Home = () => {
           </View>
         </View>
 
-        <View>
-          <Text style={{color: '#000'}}>Activity Status</Text>
+        <View
+          style={[
+            styles.headingContainer,
+            {
+              flexDirection: 'row',
+              justifyContent: 'space-between',
+              alignItems: 'center',
+            },
+          ]}>
+          <Text style={styles.heading}>You’ll Need</Text>
+
+          <Text style={styles.itemCountText}>5 items</Text>
         </View>
       </View>
     </ScrollView>

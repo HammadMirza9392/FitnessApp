@@ -11,6 +11,8 @@ import {
 import React from 'react';
 import LinearGradient from 'react-native-linear-gradient';
 
+import ProgressVerticalLine from '../Global/ProgressVerticalLine';
+
 const windowWidth = Dimensions.get('window').width;
 
 const notifyData = [
@@ -104,6 +106,13 @@ const ActivityTracker = () => {
             </View>
           </View>
         </View>
+
+        <View style={styles.progressHeadingContainer}>
+          <Text style={styles.ProgressMainText}>Activity Progress</Text>
+          <Text style={styles.latestActivitySubText}> See More</Text>
+        </View>
+
+        <ProgressVerticalLine />
 
         <View style={styles.LatestActivityContainer}>
           <View style={styles.latestActivityTopHeading}>
@@ -241,5 +250,18 @@ const styles = StyleSheet.create({
   ActivityImgMore: {
     width: 25,
     height: 25,
+  },
+  progressHeadingContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    width: windowWidth - 50,
+    alignItems: 'center',
+    marginVertical: 10,
+  },
+  ProgressMainText: {
+    color: '#000',
+    margin: 10,
+    fontSize: 20,
+    fontWeight: 'bold',
   },
 });
