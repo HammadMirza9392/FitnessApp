@@ -5,9 +5,10 @@ import {
   TouchableOpacity,
   Text,
   Dimensions,
+  Animated,
   View,
 } from 'react-native';
-import React, {useState} from 'react';
+import React, {useState, useRef} from 'react';
 import LinearGradient from 'react-native-linear-gradient';
 import Toggle from 'react-native-toggle-element';
 
@@ -17,6 +18,8 @@ const windowHeight = Dimensions.get('window').height;
 const WorkoutTracker = () => {
   const [FullBodyWorkout, setFullBodyWorkout] = useState(true);
   const [UpperBodyWorkOut, setUpperBodyWorkOut] = useState(false);
+
+  const ScrollA = useRef(new Animated.Value(0)).current;
 
   return (
     <View style={styles.mainContainer}>
@@ -62,10 +65,14 @@ const WorkoutTracker = () => {
                 </TouchableOpacity>
               </View>
             </View>
+
             <View style={styles.upWorkoutMainTextContainer}>
-              <Text>Upcoming Workout</Text>
-              <Text>See more</Text>
+              <Text style={styles.heading}>Upcoming Workout</Text>
+              <TouchableOpacity>
+                <Text style={styles.upWorkoutseeMore}>See more</Text>
+              </TouchableOpacity>
             </View>
+
             <View style={styles.upcomingWorkoutContainer}>
               <TouchableOpacity style={styles.upcomingWorkoutContent}>
                 <View style={{flexDirection: 'row', alignItems: 'center'}}>
@@ -86,9 +93,9 @@ const WorkoutTracker = () => {
                   value={FullBodyWorkout}
                   onPress={val => setFullBodyWorkout(val)}
                   trackBarStyle={{
-                    backgroundColor: FullBodyWorkout ? '#C58BF2' : 'gray',
+                    backgroundColor: FullBodyWorkout ? '#C58BF2' : '#ADA4A5',
                     height: 25,
-                    borderColor: FullBodyWorkout ? '#C58BF2' : 'gray',
+                    borderColor: FullBodyWorkout ? '#C58BF2' : '#ADA4A5',
                   }}
                   trackBar={{width: 50, borderWidth: 4}}
                   thumbButton={styles.toggleBtn}
@@ -119,9 +126,9 @@ const WorkoutTracker = () => {
                   value={UpperBodyWorkOut}
                   onPress={val => setUpperBodyWorkOut(val)}
                   trackBarStyle={{
-                    backgroundColor: UpperBodyWorkOut ? '#C58BF2' : 'gray',
+                    backgroundColor: UpperBodyWorkOut ? '#C58BF2' : '#ADA4A5',
                     height: 25,
-                    borderColor: UpperBodyWorkOut ? '#C58BF2' : 'gray',
+                    borderColor: UpperBodyWorkOut ? '#C58BF2' : '#ADA4A5',
                   }}
                   trackBar={{width: 50, borderWidth: 4}}
                   thumbButton={styles.toggleBtn}
@@ -132,17 +139,75 @@ const WorkoutTracker = () => {
               </TouchableOpacity>
             </View>
 
-            <Text style={{color: '#000', fontSize: 20, margin: 20}}>HELLO</Text>
-            <Text style={{color: '#000', fontSize: 20, margin: 20}}>HELLO</Text>
-            <Text style={{color: '#000', fontSize: 20, margin: 20}}>HELLO</Text>
-            <Text style={{color: '#000', fontSize: 20, margin: 20}}>HELLO</Text>
-            <Text style={{color: '#000', fontSize: 20, margin: 20}}>HELLO</Text>
-            <Text style={{color: '#000', fontSize: 20, margin: 20}}>HELLO</Text>
-            <Text style={{color: '#000', fontSize: 20, margin: 20}}>HELLO</Text>
-            <Text style={{color: '#000', fontSize: 20, margin: 20}}>HELLO</Text>
-            <Text style={{color: '#000', fontSize: 20, margin: 20}}>HELLO</Text>
-            <Text style={{color: '#000', fontSize: 20, margin: 20}}>HELLO</Text>
-            <Text style={{color: '#000', fontSize: 20, margin: 20}}>HELLO</Text>
+            <View style={styles.upWorkoutMainTextContainer}>
+              <Text style={styles.heading}>What Do You Want to Train</Text>
+            </View>
+
+            <View style={styles.wantTrainContainer}>
+              <View style={styles.wantTraintextContainer}>
+                <Text style={styles.mainText}>Fullbody Workout</Text>
+                <Text style={styles.subText}>11 Exercises | 32mins</Text>
+                <TouchableOpacity
+                  style={styles.viewmorewantTrainbtn}
+                  onPress={() => navigation.navigate('Login')}>
+                  <Text style={styles.wantTrainbtnText}>View More</Text>
+                </TouchableOpacity>
+              </View>
+              <View style={styles.wantTrainImgContainer}>
+                <Image
+                  source={require('./../assets/wantTrainEllipse.png')}
+                  style={styles.wantTrainEllips}
+                />
+                <Image
+                  source={require('./../assets/wantTainTopImg.png')}
+                  style={styles.wantTrainImg}
+                />
+              </View>
+            </View>
+
+            <View style={styles.wantTrainContainer}>
+              <View style={styles.wantTraintextContainer}>
+                <Text style={styles.mainText}>Fullbody Workout</Text>
+                <Text style={styles.subText}>11 Exercises | 32mins</Text>
+                <TouchableOpacity
+                  style={styles.viewmorewantTrainbtn}
+                  onPress={() => navigation.navigate('Login')}>
+                  <Text style={styles.wantTrainbtnText}>View More</Text>
+                </TouchableOpacity>
+              </View>
+              <View style={styles.wantTrainImgContainer}>
+                <Image
+                  source={require('./../assets/wantTrainEllipse.png')}
+                  style={styles.wantTrainEllips}
+                />
+                <Image
+                  source={require('./../assets/wantTainTopImg2.png')}
+                  style={styles.wantTrainImg}
+                />
+              </View>
+            </View>
+
+            <View style={styles.wantTrainContainer}>
+              <View style={styles.wantTraintextContainer}>
+                <Text style={styles.mainText}>Fullbody Workout</Text>
+                <Text style={styles.subText}>11 Exercises | 32mins</Text>
+                <TouchableOpacity
+                  style={styles.viewmorewantTrainbtn}
+                  onPress={() => navigation.navigate('Login')}>
+                  <Text style={styles.wantTrainbtnText}>View More</Text>
+                </TouchableOpacity>
+              </View>
+              <View style={[styles.wantTrainImgContainer, {marginRight: 10}]}>
+                <Image
+                  source={require('./../assets/wantTrainEllipse.png')}
+                  style={styles.wantTrainEllips}
+                />
+                <Image
+                  source={require('./../assets/Ab-Workout1.png')}
+                  style={[styles.wantTrainImg, {width: 140}]}
+                />
+              </View>
+            </View>
           </ScrollView>
         </View>
       </View>
@@ -182,19 +247,21 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     width: '100%',
     marginTop: 150,
-    paddingVertical: 20,
+    paddingVertical: 15,
     borderTopRightRadius: 30,
     borderTopLeftRadius: 30,
     alignItems: 'center',
   },
   checkContainer: {
-    backgroundColor: '#C3CEFE',
+    backgroundColor: '#eaf0ff',
     width: windowWidth - 40,
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
     borderRadius: 20,
     paddingRight: 20,
+    alignSelf: 'center',
+    marginTop: 30,
   },
   targetText: {
     color: '#000',
@@ -226,8 +293,21 @@ const styles = StyleSheet.create({
     marginVertical: 10,
     marginHorizontal: 4,
     borderRadius: 20,
+    alignSelf: 'center',
   },
-  upWorkoutMainTextContainer: {},
+  upWorkoutMainTextContainer: {
+    flexDirection: 'row',
+    margin: 20,
+    justifyContent: 'space-between',
+  },
+  heading: {
+    color: '#000',
+    fontSize: 18,
+    fontWeight: 'bold',
+  },
+  upWorkoutseeMore: {
+    color: '#ADA4A5',
+  },
   upcomingWorkoutContent: {
     flexDirection: 'row',
     justifyContent: 'space-between',
@@ -256,5 +336,59 @@ const styles = StyleSheet.create({
     width: 25,
     height: 25,
     radius: 20,
+  },
+  wantTrainContainer: {
+    width: windowWidth - 30,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    backgroundColor: '#eaf0ff',
+    borderRadius: 20,
+    alignSelf: 'center',
+    marginVertical: 10,
+  },
+  wantTraintextContainer: {
+    paddingVertical: 30,
+    paddingLeft: 30,
+  },
+  wantTrainImgContainer: {
+    marginRight: 40,
+    marginTop: 20,
+    marginBottom: 20,
+    alignItems: 'center',
+  },
+  wantTrainEllips: {
+    width: 110,
+    height: 110,
+    marginTop: 10,
+    position: 'absolute',
+  },
+  wantTrainImg: {
+    width: 100,
+    height: 120,
+    resizeMode: 'stretch',
+  },
+  mainText: {
+    color: '#000',
+    fontWeight: 'bold',
+    fontSize: 16,
+  },
+  subText: {
+    color: '#7B6F72',
+    marginTop: 5,
+    fontSize: 12,
+  },
+  viewmorewantTrainbtn: {
+    width: '70%',
+    marginTop: 20,
+    paddingLeft: 5,
+    paddingRight: 5,
+    borderRadius: 30,
+    paddingVertical: 10,
+    backgroundColor: '#fff',
+  },
+  wantTrainbtnText: {
+    fontSize: 12,
+    textAlign: 'center',
+    color: '#92A3FD',
   },
 });
