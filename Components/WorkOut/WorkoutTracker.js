@@ -19,198 +19,202 @@ const WorkoutTracker = () => {
   const [FullBodyWorkout, setFullBodyWorkout] = useState(true);
   const [UpperBodyWorkOut, setUpperBodyWorkOut] = useState(false);
 
-  const ScrollA = useRef(new Animated.Value(0)).current;
-
   return (
     <View style={styles.mainContainer}>
-      <View style={styles.bodyContainer}>
-        <LinearGradient
-          start={{x: 0, y: 0}}
-          end={{x: 1, y: 0}}
-          colors={['#9DCEFF', '#92A3FD']}
-          style={styles.linearGradientTop}>
-          <View style={styles.TopHeader}>
+      <LinearGradient
+        start={{x: 0, y: 0}}
+        end={{x: 1, y: 0}}
+        colors={['#9DCEFF', '#92A3FD']}
+        style={styles.linearGradientTop}>
+        <View style={styles.TopHeader}>
+          <Image
+            source={require('./../assets/Back-Navs.png')}
+            style={{width: 40, height: 40}}
+          />
+          <Text style={styles.MainText}>Workout Tracker</Text>
+          <TouchableOpacity
+            onPress={() => navigation.navigate('FinishedWorkout')}>
             <Image
-              source={require('./../assets/Back-Navs.png')}
+              source={require('./../assets/Detail-Navs.png')}
               style={{width: 40, height: 40}}
             />
-            <Text style={styles.MainText}>Workout Tracker</Text>
-            <TouchableOpacity
-              onPress={() => navigation.navigate('FinishedWorkout')}>
-              <Image
-                source={require('./../assets/Detail-Navs.png')}
-                style={{width: 40, height: 40}}
+          </TouchableOpacity>
+        </View>
+        <View>
+          <Image
+            source={require('./../assets/Graphworkout.png')}
+            style={{
+              width: '90%',
+              height: 200,
+              resizeMode: 'stretch',
+              alignSelf: 'center',
+            }}
+          />
+        </View>
+      </LinearGradient>
+      <ScrollView style={{width: '100%'}}>
+        <View style={styles.whitebgContainer}>
+          <View style={styles.checkContainer}>
+            <View>
+              <Text style={styles.targetText}>Daily Workout Schedule</Text>
+            </View>
+            <View>
+              <TouchableOpacity
+                style={styles.checktargetbtnContainer}
+                onPress={() => navigation.navigate('Login')}>
+                <LinearGradient
+                  start={{x: 0, y: 0}}
+                  end={{x: 1, y: 0}}
+                  colors={['#9DCEFF', '#92A3FD']}
+                  style={styles.checktargetbtn}>
+                  <Text style={styles.checktargetbtnText}>Check</Text>
+                </LinearGradient>
+              </TouchableOpacity>
+            </View>
+          </View>
+
+          <View style={styles.upWorkoutMainTextContainer}>
+            <Text style={styles.heading}>Upcoming Workout</Text>
+            <TouchableOpacity>
+              <Text style={styles.upWorkoutseeMore}>See more</Text>
+            </TouchableOpacity>
+          </View>
+
+          <View style={styles.upcomingWorkoutContainer}>
+            <TouchableOpacity style={styles.upcomingWorkoutContent}>
+              <View style={{flexDirection: 'row', alignItems: 'center'}}>
+                <Image
+                  source={require('./../assets/Workout-Pic.png')}
+                  style={styles.upcomingWorkoutContentImg}
+                />
+                <View>
+                  <Text style={styles.upcomingWorkoutmainTxt}>
+                    Fullbody Workout
+                  </Text>
+                  <Text style={styles.upcomingWorkouttime}>Today, 03:00pm</Text>
+                </View>
+              </View>
+              <Toggle
+                value={FullBodyWorkout}
+                onPress={val => setFullBodyWorkout(val)}
+                trackBarStyle={{
+                  backgroundColor: FullBodyWorkout ? '#C58BF2' : '#ADA4A5',
+                  height: 25,
+                  borderColor: FullBodyWorkout ? '#C58BF2' : '#ADA4A5',
+                }}
+                trackBar={{width: 50, borderWidth: 4}}
+                thumbButton={styles.toggleBtn}
+                thumbStyle={{
+                  backgroundColor: '#fff',
+                }}
               />
             </TouchableOpacity>
           </View>
-        </LinearGradient>
 
-        <View style={styles.whitebgContainer}>
-          <ScrollView>
-            <View style={styles.checkContainer}>
-              <View>
-                <Text style={styles.targetText}>Daily Workout Schedule</Text>
-              </View>
-              <View>
-                <TouchableOpacity
-                  style={styles.checktargetbtnContainer}
-                  onPress={() => navigation.navigate('Login')}>
-                  <LinearGradient
-                    start={{x: 0, y: 0}}
-                    end={{x: 1, y: 0}}
-                    colors={['#9DCEFF', '#92A3FD']}
-                    style={styles.checktargetbtn}>
-                    <Text style={styles.checktargetbtnText}>Check</Text>
-                  </LinearGradient>
-                </TouchableOpacity>
-              </View>
-            </View>
-
-            <View style={styles.upWorkoutMainTextContainer}>
-              <Text style={styles.heading}>Upcoming Workout</Text>
-              <TouchableOpacity>
-                <Text style={styles.upWorkoutseeMore}>See more</Text>
-              </TouchableOpacity>
-            </View>
-
-            <View style={styles.upcomingWorkoutContainer}>
-              <TouchableOpacity style={styles.upcomingWorkoutContent}>
-                <View style={{flexDirection: 'row', alignItems: 'center'}}>
-                  <Image
-                    source={require('./../assets/Workout-Pic.png')}
-                    style={styles.upcomingWorkoutContentImg}
-                  />
-                  <View>
-                    <Text style={styles.upcomingWorkoutmainTxt}>
-                      Fullbody Workout
-                    </Text>
-                    <Text style={styles.upcomingWorkouttime}>
-                      Today, 03:00pm
-                    </Text>
-                  </View>
+          <View style={styles.upcomingWorkoutContainer}>
+            <TouchableOpacity style={styles.upcomingWorkoutContent}>
+              <View style={{flexDirection: 'row', alignItems: 'center'}}>
+                <Image
+                  source={require('./../assets/Workout-Pic2.png')}
+                  style={styles.upcomingWorkoutContentImg}
+                />
+                <View>
+                  <Text style={styles.upcomingWorkoutmainTxt}>
+                    Upperbody Workout
+                  </Text>
+                  <Text style={styles.upcomingWorkouttime}>
+                    June 05, 02:00pm
+                  </Text>
                 </View>
-                <Toggle
-                  value={FullBodyWorkout}
-                  onPress={val => setFullBodyWorkout(val)}
-                  trackBarStyle={{
-                    backgroundColor: FullBodyWorkout ? '#C58BF2' : '#ADA4A5',
-                    height: 25,
-                    borderColor: FullBodyWorkout ? '#C58BF2' : '#ADA4A5',
-                  }}
-                  trackBar={{width: 50, borderWidth: 4}}
-                  thumbButton={styles.toggleBtn}
-                  thumbStyle={{
-                    backgroundColor: '#fff',
-                  }}
-                />
+              </View>
+              <Toggle
+                value={UpperBodyWorkOut}
+                onPress={val => setUpperBodyWorkOut(val)}
+                trackBarStyle={{
+                  backgroundColor: UpperBodyWorkOut ? '#C58BF2' : '#ADA4A5',
+                  height: 25,
+                  borderColor: UpperBodyWorkOut ? '#C58BF2' : '#ADA4A5',
+                }}
+                trackBar={{width: 50, borderWidth: 4}}
+                thumbButton={styles.toggleBtn}
+                thumbStyle={{
+                  backgroundColor: '#fff',
+                }}
+              />
+            </TouchableOpacity>
+          </View>
+
+          <View style={styles.upWorkoutMainTextContainer}>
+            <Text style={styles.heading}>What Do You Want to Train</Text>
+          </View>
+
+          <View style={styles.wantTrainContainer}>
+            <View style={styles.wantTraintextContainer}>
+              <Text style={styles.mainText}>Fullbody Workout</Text>
+              <Text style={styles.subText}>11 Exercises | 32mins</Text>
+              <TouchableOpacity
+                style={styles.viewmorewantTrainbtn}
+                onPress={() => navigation.navigate('Login')}>
+                <Text style={styles.wantTrainbtnText}>View More</Text>
               </TouchableOpacity>
             </View>
+            <View style={styles.wantTrainImgContainer}>
+              <Image
+                source={require('./../assets/wantTrainEllipse.png')}
+                style={styles.wantTrainEllips}
+              />
+              <Image
+                source={require('./../assets/wantTainTopImg.png')}
+                style={styles.wantTrainImg}
+              />
+            </View>
+          </View>
 
-            <View style={styles.upcomingWorkoutContainer}>
-              <TouchableOpacity style={styles.upcomingWorkoutContent}>
-                <View style={{flexDirection: 'row', alignItems: 'center'}}>
-                  <Image
-                    source={require('./../assets/Workout-Pic2.png')}
-                    style={styles.upcomingWorkoutContentImg}
-                  />
-                  <View>
-                    <Text style={styles.upcomingWorkoutmainTxt}>
-                      Upperbody Workout
-                    </Text>
-                    <Text style={styles.upcomingWorkouttime}>
-                      June 05, 02:00pm
-                    </Text>
-                  </View>
-                </View>
-                <Toggle
-                  value={UpperBodyWorkOut}
-                  onPress={val => setUpperBodyWorkOut(val)}
-                  trackBarStyle={{
-                    backgroundColor: UpperBodyWorkOut ? '#C58BF2' : '#ADA4A5',
-                    height: 25,
-                    borderColor: UpperBodyWorkOut ? '#C58BF2' : '#ADA4A5',
-                  }}
-                  trackBar={{width: 50, borderWidth: 4}}
-                  thumbButton={styles.toggleBtn}
-                  thumbStyle={{
-                    backgroundColor: '#fff',
-                  }}
-                />
+          <View style={styles.wantTrainContainer}>
+            <View style={styles.wantTraintextContainer}>
+              <Text style={styles.mainText}>Fullbody Workout</Text>
+              <Text style={styles.subText}>11 Exercises | 32mins</Text>
+              <TouchableOpacity
+                style={styles.viewmorewantTrainbtn}
+                onPress={() => navigation.navigate('Login')}>
+                <Text style={styles.wantTrainbtnText}>View More</Text>
               </TouchableOpacity>
             </View>
-
-            <View style={styles.upWorkoutMainTextContainer}>
-              <Text style={styles.heading}>What Do You Want to Train</Text>
+            <View style={styles.wantTrainImgContainer}>
+              <Image
+                source={require('./../assets/wantTrainEllipse.png')}
+                style={styles.wantTrainEllips}
+              />
+              <Image
+                source={require('./../assets/wantTainTopImg2.png')}
+                style={styles.wantTrainImg}
+              />
             </View>
+          </View>
 
-            <View style={styles.wantTrainContainer}>
-              <View style={styles.wantTraintextContainer}>
-                <Text style={styles.mainText}>Fullbody Workout</Text>
-                <Text style={styles.subText}>11 Exercises | 32mins</Text>
-                <TouchableOpacity
-                  style={styles.viewmorewantTrainbtn}
-                  onPress={() => navigation.navigate('Login')}>
-                  <Text style={styles.wantTrainbtnText}>View More</Text>
-                </TouchableOpacity>
-              </View>
-              <View style={styles.wantTrainImgContainer}>
-                <Image
-                  source={require('./../assets/wantTrainEllipse.png')}
-                  style={styles.wantTrainEllips}
-                />
-                <Image
-                  source={require('./../assets/wantTainTopImg.png')}
-                  style={styles.wantTrainImg}
-                />
-              </View>
+          <View style={styles.wantTrainContainer}>
+            <View style={styles.wantTraintextContainer}>
+              <Text style={styles.mainText}>Fullbody Workout</Text>
+              <Text style={styles.subText}>11 Exercises | 32mins</Text>
+              <TouchableOpacity
+                style={styles.viewmorewantTrainbtn}
+                onPress={() => navigation.navigate('Login')}>
+                <Text style={styles.wantTrainbtnText}>View More</Text>
+              </TouchableOpacity>
             </View>
-
-            <View style={styles.wantTrainContainer}>
-              <View style={styles.wantTraintextContainer}>
-                <Text style={styles.mainText}>Fullbody Workout</Text>
-                <Text style={styles.subText}>11 Exercises | 32mins</Text>
-                <TouchableOpacity
-                  style={styles.viewmorewantTrainbtn}
-                  onPress={() => navigation.navigate('Login')}>
-                  <Text style={styles.wantTrainbtnText}>View More</Text>
-                </TouchableOpacity>
-              </View>
-              <View style={styles.wantTrainImgContainer}>
-                <Image
-                  source={require('./../assets/wantTrainEllipse.png')}
-                  style={styles.wantTrainEllips}
-                />
-                <Image
-                  source={require('./../assets/wantTainTopImg2.png')}
-                  style={styles.wantTrainImg}
-                />
-              </View>
+            <View style={[styles.wantTrainImgContainer, {marginRight: 10}]}>
+              <Image
+                source={require('./../assets/wantTrainEllipse.png')}
+                style={styles.wantTrainEllips}
+              />
+              <Image
+                source={require('./../assets/Ab-Workout1.png')}
+                style={[styles.wantTrainImg, {width: 140}]}
+              />
             </View>
-
-            <View style={styles.wantTrainContainer}>
-              <View style={styles.wantTraintextContainer}>
-                <Text style={styles.mainText}>Fullbody Workout</Text>
-                <Text style={styles.subText}>11 Exercises | 32mins</Text>
-                <TouchableOpacity
-                  style={styles.viewmorewantTrainbtn}
-                  onPress={() => navigation.navigate('Login')}>
-                  <Text style={styles.wantTrainbtnText}>View More</Text>
-                </TouchableOpacity>
-              </View>
-              <View style={[styles.wantTrainImgContainer, {marginRight: 10}]}>
-                <Image
-                  source={require('./../assets/wantTrainEllipse.png')}
-                  style={styles.wantTrainEllips}
-                />
-                <Image
-                  source={require('./../assets/Ab-Workout1.png')}
-                  style={[styles.wantTrainImg, {width: 140}]}
-                />
-              </View>
-            </View>
-          </ScrollView>
+          </View>
         </View>
-      </View>
+      </ScrollView>
     </View>
   );
 };
@@ -218,19 +222,11 @@ const WorkoutTracker = () => {
 export default WorkoutTracker;
 
 const styles = StyleSheet.create({
-  mainContainer: {
-    flex: 1,
-    backgroundColor: '#fff',
-  },
-
-  bodyContainer: {
-    alignItems: 'center',
-    height: windowHeight,
-  },
   linearGradientTop: {
     height: windowHeight,
     position: 'absolute',
     top: 0,
+    width: '100%',
   },
   TopHeader: {
     width: windowWidth - 30,
@@ -246,11 +242,10 @@ const styles = StyleSheet.create({
   whitebgContainer: {
     backgroundColor: '#fff',
     width: '100%',
-    marginTop: 150,
+    marginTop: 300,
     paddingVertical: 15,
     borderTopRightRadius: 30,
     borderTopLeftRadius: 30,
-    alignItems: 'center',
   },
   checkContainer: {
     backgroundColor: '#eaf0ff',
