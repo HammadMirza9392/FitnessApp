@@ -20,7 +20,7 @@ const WorkoutTracker = () => {
   const [UpperBodyWorkOut, setUpperBodyWorkOut] = useState(false);
 
   return (
-    <View style={styles.mainContainer}>
+    <View>
       <LinearGradient
         start={{x: 0, y: 0}}
         end={{x: 1, y: 0}}
@@ -52,8 +52,9 @@ const WorkoutTracker = () => {
           />
         </View>
       </LinearGradient>
-      <ScrollView style={{width: '100%'}}>
-        <View style={styles.whitebgContainer}>
+
+      <View style={styles.whitebgContainer}>
+        <ScrollView>
           <View style={styles.checkContainer}>
             <View>
               <Text style={styles.targetText}>Daily Workout Schedule</Text>
@@ -213,8 +214,8 @@ const WorkoutTracker = () => {
               />
             </View>
           </View>
-        </View>
-      </ScrollView>
+        </ScrollView>
+      </View>
     </View>
   );
 };

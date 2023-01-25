@@ -22,16 +22,18 @@ import BottomNavigation from './Components/Global/BottomNavigation';
 import FinishedWorkout from './Components/Main/FinishedWorkout';
 import Chart from './Components/Global/Chart';
 import WorkoutTracker from './Components/WorkOut/WorkoutTracker';
+import FullBodyWorkout from './Components/WorkOut/FullBodyWorkout';
 
 
 
 const App = () => {
   return (
     <NavigationContainer>
-    <Stack.Navigator initialRouteName='WorkoutTracker'>
+    <Stack.Navigator initialRouteName='FullBodyWorkout'>
 
       <Stack.Screen name="SignUp" component={SignUp}  options={{headerShown:false}}/>
       <Stack.Screen name="WorkoutTracker" component={WorkoutTracker}  options={{headerShown:false}}/>
+      <Stack.Screen name="FullBodyWorkout" component={FullBodyWorkout}  options={{headerShown:false}}/>
       <Stack.Screen name="BottomNavigation" component={BottomNavigation}  options={{headerShown:false}}/>
       <Stack.Screen name="Login" component={Login}  options={{headerShown:false}}/>
       <Stack.Screen name="Welcome" component={Welcome}  options={{headerShown:false}}/>
