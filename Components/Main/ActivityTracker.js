@@ -202,12 +202,13 @@ const styles = StyleSheet.create({
   },
   LatestActivityContainer: {
     width: windowWidth - 50,
+    marginVertical: 30,
   },
   latestActivityTopHeading: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     marginHorizontal: 10,
-    marginVertical: 10,
+    marginVertical: 20,
     alignItems: 'center',
   },
   latestActivityMainText: {

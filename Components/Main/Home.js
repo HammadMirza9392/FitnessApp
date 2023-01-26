@@ -9,14 +9,15 @@ import {
 } from 'react-native';
 import React from 'react';
 import LinearGradient from 'react-native-linear-gradient';
+import * as Progress from 'react-native-progress';
 
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
 
 const Home = () => {
   return (
-    <ScrollView style={styles.mainContainer}>
-      <View style={styles.bodyContainer}>
+    <View style={styles.mainContainer}>
+      <ScrollView>
         <View style={styles.topHeaderContainer}>
           <View style={{margin: 20, marginTop: 40}}>
             <Text style={styles.welcomeText}>Welcome Back,</Text>
@@ -77,21 +78,279 @@ const Home = () => {
           </View>
         </View>
 
-        <View
-          style={[
-            styles.headingContainer,
-            {
-              flexDirection: 'row',
-              justifyContent: 'space-between',
-              alignItems: 'center',
-            },
-          ]}>
-          <Text style={styles.heading}>You’ll Need</Text>
-
-          <Text style={styles.itemCountText}>5 items</Text>
+        <View style={styles.headingContainer}>
+          <Text style={[styles.heading, {marginLeft: 30}]}>
+            Activity Status
+          </Text>
+          <Image
+            source={require('./../assets/Status.png')}
+            style={{width: '100%', height: 160, marginVertical: 10}}
+          />
         </View>
-      </View>
-    </ScrollView>
+
+        <View style={styles.intakeSleepContainer}>
+          <View style={styles.waterIntakeContainer}>
+            <View>
+              <Progress.Bar
+                progress={0.7}
+                unfilledColor={'#F7F8F8'}
+                color={'#C58BF2'}
+                borderWidth={0}
+                height={25}
+                width={450}
+                style={{
+                  transform: [{rotate: '-90deg'}],
+                  marginTop: 200,
+                  borderRadius: 30,
+                  position: 'absolute',
+                  left: -200,
+                }}
+              />
+            </View>
+            <View style={{marginLeft: 45}}>
+              <Text style={styles.InnerTopHeading}>Water Intake</Text>
+              <Text style={styles.InnerSubHeading}>4 Liters</Text>
+
+              <Text style={{color: 'gray'}}>Real time updates</Text>
+
+              <View
+                style={{
+                  flexDirection: 'row',
+                  marginTop: 20,
+                }}>
+                <Image
+                  source={require('./../assets/Real-Time-Updates-Progress.png')}
+                  style={{
+                    marginTop: 10,
+                    marginLeft: 0,
+                    width: '30%',
+                    height: 290,
+                    resizeMode: 'contain',
+                    // backgroundColor: 'red',
+                  }}
+                />
+                <View>
+                  <Text style={{color: 'gray'}}>6am - 8am</Text>
+                  <Text
+                    style={{
+                      color: '#C58BF2',
+                      fontWeight: '500',
+                      marginBottom: 30,
+                    }}>
+                    600ml
+                  </Text>
+
+                  <Text style={{color: 'gray'}}>6am - 8am</Text>
+                  <Text
+                    style={{
+                      color: '#C58BF2',
+                      fontWeight: '500',
+                      marginBottom: 30,
+                    }}>
+                    600ml
+                  </Text>
+
+                  <Text style={{color: 'gray'}}>6am - 8am</Text>
+                  <Text
+                    style={{
+                      color: '#C58BF2',
+                      fontWeight: '500',
+                      marginBottom: 30,
+                    }}>
+                    600ml
+                  </Text>
+
+                  <Text style={{color: 'gray'}}>6am - 8am</Text>
+                  <Text
+                    style={{
+                      color: '#C58BF2',
+                      fontWeight: '500',
+                      marginBottom: 30,
+                    }}>
+                    600ml
+                  </Text>
+
+                  <Text style={{color: 'gray'}}>6am - 8am</Text>
+                  <Text
+                    style={{
+                      color: '#C58BF2',
+                      fontWeight: '500',
+                      marginBottom: 30,
+                    }}>
+                    600ml
+                  </Text>
+                </View>
+              </View>
+            </View>
+          </View>
+
+          <View style={styles.SleepContainer}>
+            <View style={styles.SleepInnerContainer}>
+              <Text style={styles.InnerTopHeading}>Water Intake</Text>
+              <Text style={styles.InnerSubHeading}>4 Liters</Text>
+              <Image
+                source={require('./../assets/Sleep-Graph.png')}
+                style={{
+                  width: '100%',
+                  resizeMode: 'stretch',
+                  height: 120,
+                }}
+              />
+            </View>
+            <View style={styles.CaloriesContainer}>
+              <Text style={styles.InnerTopHeading}>Water Intake</Text>
+              <Text style={styles.InnerSubHeading}>4 Liters</Text>
+              <Image
+                source={require('./../assets/Calories-Pie.png')}
+                style={{
+                  width: '100%',
+                  resizeMode: 'stretch',
+                  height: 120,
+                }}
+              />
+            </View>
+          </View>
+        </View>
+
+        <View style={styles.headingContainer}>
+          <Text style={[styles.heading, {marginLeft: 30}]}>
+            Workout Progress
+          </Text>
+          <Image
+            source={require('./../assets/GraphHome.png')}
+            style={{
+              // width: '90%',
+              height: 180,
+              alignSelf: 'center',
+              resizeMode: 'contain',
+              marginTop: 20,
+            }}
+          />
+        </View>
+
+        <View style={styles.headingContainer}>
+          <Text style={[styles.heading, {marginLeft: 30}]}>Latest Workout</Text>
+        </View>
+        <View style={{width: windowWidth - 20, margin: 10}}>
+          <View style={styles.ActivityContainer}>
+            <View>
+              <Image
+                source={require('./../assets/Workout-PicHome.png')}
+                style={styles.ActivityImg}
+              />
+            </View>
+            <View style={{marginHorizontal: 15}}>
+              <Text numberOfLines={1} style={styles.ActivityHeading}>
+                Fullbody Workout
+              </Text>
+              <Text style={styles.ActivityTime}>
+                180 Calories Burn | 20minutes
+              </Text>
+              <Progress.Bar
+                progress={0.3}
+                unfilledColor={'#F7F8F8'}
+                color={'#C58BF2'}
+                borderWidth={0}
+                width={230}
+                height={12}
+                style={{
+                  // transform: [{rotate: '-90deg'}],
+                  marginTop: 10,
+                  borderRadius: 30,
+
+                  //// position: 'absolute',
+                  // left: 5,
+                }}
+              />
+            </View>
+            <View style={{position: 'absolute', right: 10}}>
+              <Image
+                source={require('./../assets/Workout-Btn.png')}
+                style={styles.ActivityImgMore}
+              />
+            </View>
+          </View>
+
+          <View style={styles.ActivityContainer}>
+            <View>
+              <Image
+                source={require('./../assets/Workout-PicHome2.png')}
+                style={styles.ActivityImg}
+              />
+            </View>
+            <View style={{marginHorizontal: 15}}>
+              <Text numberOfLines={1} style={styles.ActivityHeading}>
+                Lowerbody Workout
+              </Text>
+              <Text style={styles.ActivityTime}>
+                200 Calories Burn | 30minutes
+              </Text>
+              <Progress.Bar
+                progress={0.8}
+                unfilledColor={'#F7F8F8'}
+                color={'#C58BF2'}
+                borderWidth={0}
+                width={230}
+                height={12}
+                style={{
+                  // transform: [{rotate: '-90deg'}],
+                  marginTop: 10,
+                  borderRadius: 30,
+
+                  //// position: 'absolute',
+                  // left: 5,
+                }}
+              />
+            </View>
+            <View style={{position: 'absolute', right: 10}}>
+              <Image
+                source={require('./../assets/Workout-Btn.png')}
+                style={styles.ActivityImgMore}
+              />
+            </View>
+          </View>
+
+          <View style={styles.ActivityContainer}>
+            <View>
+              <Image
+                source={require('./../assets/Workout-PicHome3.png')}
+                style={styles.ActivityImg}
+              />
+            </View>
+            <View style={{marginHorizontal: 15}}>
+              <Text numberOfLines={1} style={styles.ActivityHeading}>
+                Ab Workout
+              </Text>
+              <Text style={styles.ActivityTime}>
+                180 Calories Burn | 20minutes
+              </Text>
+              <Progress.Bar
+                progress={0.5}
+                unfilledColor={'#F7F8F8'}
+                color={'#C58BF2'}
+                borderWidth={0}
+                width={230}
+                height={12}
+                style={{
+                  // transform: [{rotate: '-90deg'}],
+                  marginTop: 10,
+                  borderRadius: 30,
+
+                  //// position: 'absolute',
+                  // left: 5,
+                }}
+              />
+            </View>
+            <View style={{position: 'absolute', right: 10}}>
+              <Image
+                source={require('./../assets/Workout-Btn.png')}
+                style={styles.ActivityImgMore}
+              />
+            </View>
+          </View>
+        </View>
+      </ScrollView>
+    </View>
   );
 };
 
@@ -102,14 +361,12 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
   },
-  bodyContainer: {
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
+
   topHeaderContainer: {
     flexDirection: 'row',
     width: windowWidth - 10,
     justifyContent: 'space-between',
+    alignSelf: 'center',
   },
   welcomeText: {
     color: '#ADA4A5',
@@ -129,6 +386,7 @@ const styles = StyleSheet.create({
     width: windowWidth - 10,
     flexDirection: 'row',
     justifyContent: 'space-between',
+    alignSelf: 'center',
   },
   topBanner: {
     width: '100%',
@@ -182,6 +440,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     borderRadius: 20,
     paddingRight: 20,
+    alignSelf: 'center',
   },
   targetText: {
     color: '#000',
@@ -203,5 +462,93 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     color: '#ffffff',
     fontWeight: 'bold',
+  },
+  headingContainer: {
+    margin: 10,
+    marginVertical: 20,
+  },
+  heading: {
+    color: '#000',
+    fontSize: 22,
+    fontWeight: 'bold',
+  },
+  intakeSleepContainer: {
+    flexDirection: 'row',
+    marginBottom: 20,
+    width: windowWidth - 20,
+    alignSelf: 'center',
+    //justifyContent: 'space-between',
+  },
+  waterIntakeContainer: {
+    backgroundColor: '#fff',
+    shadowColor: '#838383',
+    elevation: 4,
+    flexDirection: 'row',
+    padding: 10,
+    paddingTop: 20,
+    borderRadius: 10,
+    width: '50%',
+  },
+  SleepContainer: {
+    flexDirection: 'column',
+    width: '46%',
+    marginLeft: 10,
+  },
+  SleepInnerContainer: {
+    backgroundColor: '#fff',
+    shadowColor: '#838383',
+    elevation: 4,
+    padding: 20,
+    borderRadius: 10,
+    marginBottom: 30,
+  },
+  CaloriesContainer: {
+    backgroundColor: '#fff',
+    shadowColor: '#838383',
+    elevation: 4,
+    padding: 20,
+    borderRadius: 10,
+  },
+  InnerTopHeading: {
+    color: '#000',
+    fontSize: 18,
+    fontWeight: '500',
+  },
+  InnerSubHeading: {
+    color: '#92A3FD',
+    fontSize: 22,
+    fontWeight: 'bold',
+    marginVertical: 10,
+  },
+  ActivityContainer: {
+    width: '98%',
+    flexDirection: 'row',
+    alignItems: 'center',
+    padding: 10,
+    shadowColor: '#838383',
+    elevation: 3,
+    backgroundColor: '#fff',
+    marginVertical: 5,
+    marginHorizontal: 5,
+    borderRadius: 15,
+    paddingBottom: 20,
+    alignSelf: 'center',
+  },
+  ActivityImg: {
+    width: 50,
+    height: 50,
+  },
+  ActivityHeading: {
+    fontSize: 14,
+    color: '#000',
+    fontWeight: 'bold',
+    width: '80%',
+  },
+  ActivityTime: {
+    color: 'gray',
+  },
+  ActivityImgMore: {
+    width: 25,
+    height: 25,
   },
 });
