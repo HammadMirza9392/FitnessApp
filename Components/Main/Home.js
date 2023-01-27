@@ -16,7 +16,7 @@ import {SelectList} from 'react-native-dropdown-select-list';
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
 
-const Home = () => {
+const Home = ({navigation}) => {
   const [SelectedVal, setSelected] = useState('');
   const days = [
     {key: 1, value: 'Weekly'},

@@ -14,7 +14,7 @@ import {SelectList} from 'react-native-dropdown-select-list';
 
 const windowWidth = Dimensions.get('window').width;
 
-const MealPlanner = () => {
+const MealPlanner = ({navigation}) => {
   const [SelectedVal, setSelected] = useState('');
   const days = [
     {key: 1, value: 'Weekly'},
@@ -35,6 +35,40 @@ const MealPlanner = () => {
       lastIcon: require('./../assets/Reminders2.png'),
     },
   ];
+  const findToEatData = [
+    {
+      TopImg: require('./../assets/fintoeat1.png'),
+      Heading: 'Breakfast',
+      Foodqnty: '120+ Foods',
+      btnClr1: '#9DCEFF',
+      btnClr2: '#92A3FD',
+      bgColor: '#eaeeff',
+    },
+    {
+      TopImg: require('./../assets/Vectormeal.png'),
+      Heading: 'Salmon Nigiri',
+      Foodqnty: 'Today | 7am',
+      btnClr1: '#EEA4CE',
+      btnClr2: '#C58BF2',
+      bgColor: '#f7eafa',
+    },
+    {
+      TopImg: require('./../assets/fintoeat1.png'),
+      Heading: 'Breakfast',
+      Foodqnty: '120+ Foods',
+      btnClr1: '#9DCEFF',
+      btnClr2: '#92A3FD',
+      bgColor: '#eaeeff',
+    },
+    {
+      TopImg: require('./../assets/Vectormeal.png'),
+      Heading: 'Salmon Nigiri',
+      Foodqnty: 'Today | 7am',
+      btnClr1: '#EEA4CE',
+      btnClr2: '#C58BF2',
+      bgColor: '#f7eafa',
+    },
+  ];
   const rendorTodayMeal = item => {
     return (
       <View style={styles.TodayMealContainer}>
@@ -50,6 +84,33 @@ const MealPlanner = () => {
         <View style={{position: 'absolute', right: 0}}>
           <Image source={item.lastIcon} style={styles.TodayMealImgMore} />
         </View>
+      </View>
+    );
+  };
+  const rendorFindToEat = item => {
+    return (
+      <View
+        style={[styles.FindToEatContainer, {backgroundColor: item.bgColor}]}>
+        <View style={{right: -50}}>
+          <Image source={item.TopImg} style={styles.FindToEatImg} />
+        </View>
+        <View style={{marginHorizontal: 15}}>
+          <Text numberOfLines={1} style={styles.FindToEatHeading}>
+            {item.Heading}
+          </Text>
+          <Text style={styles.FindToEatQunty}>{item.Foodqnty}</Text>
+        </View>
+        <TouchableOpacity
+          style={styles.FindToEatButtonContainer}
+          onPress={() => navigation.navigate('CompleteProfile')}>
+          <LinearGradient
+            start={{x: 0, y: 0}}
+            end={{x: 1, y: 0}}
+            colors={[item.btnClr1, item.btnClr2]}
+            style={styles.FindToEatlinearGradient}>
+            <Text style={styles.FindToEatbuttonText}>Select</Text>
+          </LinearGradient>
+        </TouchableOpacity>
       </View>
     );
   };
@@ -167,6 +228,19 @@ const MealPlanner = () => {
             style={{width: '100%'}}
           />
         </View>
+
+        <View style={styles.headingContainer}>
+          <Text style={styles.heading}>Find Something to Eat</Text>
+        </View>
+
+        <View style={{marginBottom: 30}}>
+          <FlatList
+            data={findToEatData}
+            horizontal={true}
+            renderItem={({item}) => rendorFindToEat(item)}
+            style={{width: '100%'}}
+          />
+        </View>
       </View>
     </ScrollView>
   );
@@ -185,6 +259,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     margin: 20,
     alignItems: 'center',
+    alignSelf: 'center',
   },
   MainText: {
     color: '#000',
@@ -192,12 +267,12 @@ const styles = StyleSheet.create({
     fontSize: 20,
   },
   headingContainer: {
-    margin: 25,
+    margin: 20,
   },
   heading: {
     color: '#000',
     fontSize: 18,
-    fontWeight: '500',
+    fontWeight: '600',
   },
   dropdownbox: {
     borderColor: '#97b7fe',
@@ -278,5 +353,48 @@ const styles = StyleSheet.create({
     width: 25,
     height: 25,
     marginRight: 20,
+  },
+  FindToEatContainer: {
+    width: 220,
+    height: 220,
+    paddingTop: 0,
+    paddingRight: 0,
+    padding: 10,
+    shadowColor: '#838383',
+    elevation: 4,
+    justifyContent: 'center',
+    marginVertical: 10,
+    marginHorizontal: 10,
+    borderRadius: 15,
+    paddingBottom: 20,
+    alignSelf: 'center',
+    borderTopRightRadius: 120,
+  },
+  FindToEatImg: {
+    width: 160,
+    height: 140,
+    resizeMode: 'contain',
+  },
+  FindToEatHeading: {
+    fontSize: 16,
+    color: '#000',
+    fontWeight: 'bold',
+  },
+  FindToEatQunty: {
+    color: 'gray',
+  },
+  FindToEatButtonContainer: {
+    width: '55%',
+    marginVertical: 10,
+  },
+  FindToEatlinearGradient: {
+    borderRadius: 30,
+  },
+  FindToEatbuttonText: {
+    fontSize: 14,
+    textAlign: 'center',
+    margin: 8,
+    color: '#ffffff',
+    fontWeight: 'bold',
   },
 });

@@ -33,7 +33,7 @@ import MealPlanner from './Components/MealPlanner/MealPlanner';
 const App = () => {
   return (
     <NavigationContainer>
-    <Stack.Navigator initialRouteName='BottomNavigation'>
+    <Stack.Navigator initialRouteName='MealPlanner'>
 
       <Stack.Screen name="SignUp" component={SignUp}  options={{headerShown:false}}/>
       <Stack.Screen name="MealPlanner" component={MealPlanner}  options={{headerShown:false}}/>
