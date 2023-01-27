@@ -10,6 +10,7 @@ import {
 import React from 'react';
 import LinearGradient from 'react-native-linear-gradient';
 import * as Progress from 'react-native-progress';
+import {DashedCircularIndicator} from 'rn-dashed-circular-indicator';
 
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
@@ -140,44 +141,44 @@ const Home = () => {
                     600ml
                   </Text>
 
-                  <Text style={{color: 'gray'}}>6am - 8am</Text>
+                  <Text style={{color: 'gray'}}>9am - 11am</Text>
                   <Text
                     style={{
                       color: '#C58BF2',
                       fontWeight: '500',
                       marginBottom: 30,
                     }}>
-                    600ml
+                    500ml
                   </Text>
 
-                  <Text style={{color: 'gray'}}>6am - 8am</Text>
+                  <Text style={{color: 'gray'}}>11am - 2pm</Text>
                   <Text
                     style={{
                       color: '#C58BF2',
                       fontWeight: '500',
                       marginBottom: 30,
                     }}>
-                    600ml
+                    1000ml
                   </Text>
 
-                  <Text style={{color: 'gray'}}>6am - 8am</Text>
+                  <Text style={{color: 'gray'}}>2pm - 4pm</Text>
                   <Text
                     style={{
                       color: '#C58BF2',
                       fontWeight: '500',
                       marginBottom: 30,
                     }}>
-                    600ml
+                    700ml
                   </Text>
 
-                  <Text style={{color: 'gray'}}>6am - 8am</Text>
+                  <Text style={{color: 'gray'}}>4pm - now</Text>
                   <Text
                     style={{
                       color: '#C58BF2',
                       fontWeight: '500',
                       marginBottom: 30,
                     }}>
-                    600ml
+                    900ml
                   </Text>
                 </View>
               </View>
@@ -186,8 +187,8 @@ const Home = () => {
 
           <View style={styles.SleepContainer}>
             <View style={styles.SleepInnerContainer}>
-              <Text style={styles.InnerTopHeading}>Water Intake</Text>
-              <Text style={styles.InnerSubHeading}>4 Liters</Text>
+              <Text style={styles.InnerTopHeading}>Sleep</Text>
+              <Text style={styles.InnerSubHeading}>8h 20m</Text>
               <Image
                 source={require('./../assets/Sleep-Graph.png')}
                 style={{
@@ -198,16 +199,32 @@ const Home = () => {
               />
             </View>
             <View style={styles.CaloriesContainer}>
-              <Text style={styles.InnerTopHeading}>Water Intake</Text>
-              <Text style={styles.InnerSubHeading}>4 Liters</Text>
-              <Image
+              <Text style={styles.InnerTopHeading}>Calories</Text>
+              <Text style={styles.InnerSubHeading}>760 kCal</Text>
+
+              <DashedCircularIndicator
+                selectedValue={230}
+                maxValue={500}
+                radius={60}
+                strokeWidth={12}
+                label={'Cal Left'}
+                labelFontSize={12}
+                textColor={'#fff'}
+                backgroundColor={'#9AC3FE'}
+                activeStrokeColor={'#C58BF2'}
+                withGradient={false}
+                anticlockwise={true}
+              />
+
+              {/* <Image
                 source={require('./../assets/Calories-Pie.png')}
                 style={{
                   width: '100%',
                   resizeMode: 'stretch',
                   height: 120,
+                  zIndex: 1,
                 }}
-              />
+              /> */}
             </View>
           </View>
         </View>

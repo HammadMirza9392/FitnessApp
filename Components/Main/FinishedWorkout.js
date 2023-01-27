@@ -31,7 +31,7 @@ const FinishedWorkout = ({navigation}) => {
         </View>
         <TouchableOpacity
           style={styles.gradientButtonContainer}
-          onPress={() => navigation.navigate('Welcome')}>
+          onPress={() => navigation.navigate('WorkoutTracker')}>
           <LinearGradient
             start={{x: 0, y: 0}}
             end={{x: 1, y: 0}}
@@ -75,7 +75,7 @@ const styles = StyleSheet.create({
   },
   gradientButtonContainer: {
     width: windowWidth - 80,
-    marginTop: 120,
+    marginTop: 80,
   },
   linearGradient: {
     paddingLeft: 15,

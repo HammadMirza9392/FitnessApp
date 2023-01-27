@@ -1,17 +1,22 @@
 import {StyleSheet, Text, View} from 'react-native';
 import React from 'react';
-import * as Progress from 'react-native-progress';
+import {DashedCircularIndicator} from 'rn-dashed-circular-indicator';
 
 const Chart = () => {
   return (
     <View style={{flex: 1}}>
-      <Progress.Bar
-        progress={0.3}
-        width={200}
-        unfilledColor={'red'}
-        borderWidth={2}
-        height={8}
-        style={{transform: [{rotate: '-90deg'}], marginTop: 120}}
+      <DashedCircularIndicator
+        selectedValue={230}
+        maxValue={500}
+        radius={60}
+        strokeWidth={12}
+        label={'Cal Left'}
+        labelFontSize={12}
+        textColor={'#fff'}
+        backgroundColor={'#9AC3FE'}
+        activeStrokeColor={'#C58BF2'}
+        withGradient={false}
+        anticlockwise={true}
       />
     </View>
   );

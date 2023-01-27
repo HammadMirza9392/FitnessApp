@@ -28,7 +28,7 @@ const Welcome = ({navigation}) => {
       </View>
       <TouchableOpacity
         style={styles.gradientButtonContainer}
-        onPress={() => navigation.navigate('Notification')}>
+        onPress={() => navigation.navigate('BottomNavigation')}>
         <LinearGradient
           start={{x: 0, y: 0}}
           end={{x: 1, y: 0}}

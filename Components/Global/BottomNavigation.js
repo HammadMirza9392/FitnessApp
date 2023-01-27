@@ -5,17 +5,15 @@ import LinearGradient from 'react-native-linear-gradient';
 import Home from '../Main/Home';
 import Profile from '../Main/Profile';
 import Notification from '../Main/Notification';
-import WhatYourGoal1 from '../WhatYourGoal/WhatYourGoal1';
-import WhatYourGoal2 from '../WhatYourGoal/WhatYourGoal2';
-import FinishedWorkout from '../Main/FinishedWorkout';
 import ActivityTracker from '../Main/ActivityTracker';
+import FinishedWorkout from '../Main/FinishedWorkout';
 
 const Tab = createBottomTabNavigator();
 
 const BottomNavigation = () => {
   return (
     <Tab.Navigator
-      initialRouteName="Home2"
+      initialRouteName="Home"
       screenOptions={{
         tabBarActiveTintColor: '#C58BF2',
         tabBarShowLabel: false,
@@ -24,7 +22,7 @@ const BottomNavigation = () => {
         },
       }}>
       <Tab.Screen
-        name="Home2"
+        name="Home"
         component={Home}
         options={{
           headerShown: false,
@@ -37,8 +35,8 @@ const BottomNavigation = () => {
         }}
       />
       <Tab.Screen
-        name="WhatYourGoal2"
-        component={WhatYourGoal2}
+        name="Notification"
+        component={Notification}
         options={{
           headerShown: false,
           tabBarIcon: ({color}) => (
@@ -50,8 +48,8 @@ const BottomNavigation = () => {
         }}
       />
       <Tab.Screen
-        name="WhatYourGoal1"
-        component={WhatYourGoal1}
+        name="ActivityTracker"
+        component={ActivityTracker}
         options={{
           headerShown: false,
           tabBarIcon: ({color}) => (
@@ -69,8 +67,8 @@ const BottomNavigation = () => {
         }}
       />
       <Tab.Screen
-        name="ActivityTracker"
-        component={ActivityTracker}
+        name="FinishedWorkout"
+        component={FinishedWorkout}
         options={{
           headerShown: false,
           tabBarIcon: ({color}) => (

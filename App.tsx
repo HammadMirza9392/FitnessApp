@@ -32,10 +32,10 @@ import Workout from './Components/WorkOut/Workout';
 const App = () => {
   return (
     <NavigationContainer>
-    <Stack.Navigator initialRouteName='Workout'>
+    <Stack.Navigator initialRouteName='Home'>
 
       <Stack.Screen name="SignUp" component={SignUp}  options={{headerShown:false}}/>
-      <Stack.Screen name="ActivityTracker" component={ActivityTracker}  options={{headerShown:false}}/>
+      {/* <Stack.Screen name="ActivityTracker" component={ActivityTracker}  options={{headerShown:false}}/> */}
       <Stack.Screen name="Workout" component={Workout}  options={{headerShown:false}}/>
       <Stack.Screen name="WorkoutTracker" component={WorkoutTracker}  options={{headerShown:false}}/>
       <Stack.Screen name="FullBodyWorkout" component={FullBodyWorkout}  options={{headerShown:false}}/>
@@ -43,13 +43,15 @@ const App = () => {
       <Stack.Screen name="BottomNavigation" component={BottomNavigation}  options={{headerShown:false}}/>
       <Stack.Screen name="Login" component={Login}  options={{headerShown:false}}/>
       <Stack.Screen name="Welcome" component={Welcome}  options={{headerShown:false}}/>
-      <Stack.Screen name="FinishedWorkout" component={FinishedWorkout}  options={{headerShown:false}}/>
+      <Stack.Screen name="WhatYourGoal1" component={WhatYourGoal1}  options={{headerShown:false}}/>
+      <Stack.Screen name="WhatYourGoal2" component={WhatYourGoal2}  options={{headerShown:false}}/> 
+      <Stack.Screen name="Home" component={Home}  options={{headerShown:false}}/>
+      {/* <Stack.Screen name="FinishedWorkout" component={FinishedWorkout}  options={{headerShown:false}}/> */}
       <Stack.Screen name="Chart" component={Chart}  options={{headerShown:false}}/>
       {/* <Stack.Screen name="Profile" component={Profile}  options={{headerShown:false}}/>
-      <Stack.Screen name="Home" component={Home}  options={{headerShown:false}}/>
+     
       <Stack.Screen name="Notification" component={Notification}  options={{headerShown:false}}/>
-      <Stack.Screen name="WhatYourGoal1" component={WhatYourGoal1}  options={{headerShown:false}}/>
-      <Stack.Screen name="WhatYourGoal2" component={WhatYourGoal2}  options={{headerShown:false}}/> */}
+     */}
       <Stack.Screen name="WhatYourGoal3" component={WhatYourGoal3}  options={{headerShown:false}}/>
       <Stack.Screen name="CompleteProfile" component={CompleteProfile}  options={{headerShown:false}}/>
       <Stack.Screen name="Welcome1" component={Welcome1} options={{headerShown:false}} />

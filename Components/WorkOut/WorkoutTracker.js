@@ -15,7 +15,7 @@ import Toggle from 'react-native-toggle-element';
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
 
-const WorkoutTracker = () => {
+const WorkoutTracker = ({navigation}) => {
   const [FullBodyWorkout, setFullBodyWorkout] = useState(true);
   const [UpperBodyWorkOut, setUpperBodyWorkOut] = useState(false);
 
@@ -62,7 +62,7 @@ const WorkoutTracker = () => {
             <View>
               <TouchableOpacity
                 style={styles.checktargetbtnContainer}
-                onPress={() => navigation.navigate('Login')}>
+                onPress={() => navigation.navigate('FullBodyWorkout')}>
                 <LinearGradient
                   start={{x: 0, y: 0}}
                   end={{x: 1, y: 0}}

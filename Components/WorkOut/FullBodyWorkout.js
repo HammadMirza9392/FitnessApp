@@ -15,7 +15,7 @@ import Exercise from '../Global/Exercise';
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
 
-const FullBodyWorkout = () => {
+const FullBodyWorkout = ({navigation}) => {
   return (
     <View>
       <LinearGradient
@@ -48,9 +48,8 @@ const FullBodyWorkout = () => {
           />
         </View>
       </LinearGradient>
-
-      <View style={styles.whitebgContainer}>
-        <ScrollView>
+      <ScrollView>
+        <View style={styles.whitebgContainer}>
           <View style={styles.headingContainer}>
             <Text style={styles.heading}>Fullbody Workout</Text>
             <Text style={styles.subheading}>
@@ -134,8 +133,20 @@ const FullBodyWorkout = () => {
             <Text style={{fontSize: 16, color: '#000'}}>set 2</Text>
           </View>
           <Exercise />
-        </ScrollView>
-      </View>
+
+          <TouchableOpacity
+            style={styles.gradientButtonContainer}
+            onPress={() => navigation.navigate('Workout')}>
+            <LinearGradient
+              start={{x: 0, y: 0}}
+              end={{x: 1, y: 0}}
+              colors={['#9DCEFF', '#92A3FD']}
+              style={styles.linearGradient}>
+              <Text style={styles.buttonText}>Start Workout</Text>
+            </LinearGradient>
+          </TouchableOpacity>
+        </View>
+      </ScrollView>
     </View>
   );
 };
@@ -199,5 +210,23 @@ const styles = StyleSheet.create({
   },
   itemCountText: {
     color: '#ADA4A5',
+  },
+  gradientButtonContainer: {
+    width: windowWidth - 80,
+    marginVertical: 20,
+    alignSelf: 'center',
+  },
+  linearGradient: {
+    paddingLeft: 15,
+    paddingRight: 15,
+    borderRadius: 30,
+    paddingVertical: 10,
+  },
+  buttonText: {
+    fontSize: 16,
+    textAlign: 'center',
+    margin: 10,
+    color: '#ffffff',
+    fontWeight: 'bold',
   },
 });

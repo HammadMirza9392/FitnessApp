@@ -14,7 +14,7 @@ import BottomNavigation from '../Global/BottomNavigation';
 
 const windowWidth = Dimensions.get('window').width;
 
-const Profile = () => {
+const Profile = ({navigation}) => {
   const [toggleValue, setToggleValue] = useState(false);
 
   return (
@@ -147,7 +147,11 @@ const Profile = () => {
             <Toggle
               value={toggleValue}
               onPress={val => setToggleValue(val)}
-              trackBarStyle={styles.toggleCOntainer}
+              trackBarStyle={{
+                backgroundColor: toggleValue ? '#C58BF2' : '#ADA4A5',
+                height: 25,
+                borderColor: toggleValue ? '#C58BF2' : '#ADA4A5',
+              }}
               trackBar={{width: 50, borderWidth: 4}}
               thumbButton={styles.toggleBtn}
               thumbStyle={{
@@ -277,7 +281,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     marginHorizontal: 10,
-    borderRadius: 30,
+    borderRadius: 20,
   },
   hWMainText: {
     color: '#92A3FD',
