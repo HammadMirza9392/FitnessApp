@@ -1,36 +1,38 @@
-import {StyleSheet, Text, View, TouchableOpacity} from 'react-native';
+import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import React from 'react';
 import LinearGradient from 'react-native-linear-gradient';
 
-const Welcome2 = ({navigation}) => {
+const Splash1 = ({navigation}) => {
   return (
-    <LinearGradient
-      start={{x: 0, y: 0}}
-      end={{x: 1, y: 0}}
-      colors={['#9DCEFF', '#92A3FD']}
-      style={styles.mainContainer}>
+    <View style={styles.mainContainer}>
       <View style={styles.mainTextContainer}>
         <Text style={styles.mainText}>Fitnest</Text>
         <Text style={styles.mainTextheight}>X</Text>
       </View>
       <Text style={styles.bottomText}>Everybody Can Train</Text>
-
       <TouchableOpacity
         style={styles.gradientButtonContainer}
-        onPress={() => navigation.navigate('SignUp')}>
-        <Text style={styles.buttonText}>Get Started</Text>
+        onPress={() => navigation.navigate('Splash2')}>
+        <LinearGradient
+          start={{x: 0, y: 0}}
+          end={{x: 1, y: 0}}
+          colors={['#9DCEFF', '#92A3FD']}
+          style={styles.linearGradient}>
+          <Text style={styles.buttonText}>Get Started</Text>
+        </LinearGradient>
       </TouchableOpacity>
-    </LinearGradient>
+    </View>
   );
 };
 
-export default Welcome2;
+export default Splash1;
 
 const styles = StyleSheet.create({
   mainContainer: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
+    backgroundColor: '#fff',
   },
   mainTextContainer: {
     flexDirection: 'row',
@@ -43,7 +45,7 @@ const styles = StyleSheet.create({
   },
   mainTextheight: {
     fontSize: 55,
-    color: '#fff',
+    color: '#92A3FD',
     fontWeight: 'bold',
   },
   bottomText: {
@@ -55,18 +57,18 @@ const styles = StyleSheet.create({
     position: 'absolute',
     width: '80%',
     bottom: 40,
+  },
+  linearGradient: {
     paddingLeft: 15,
     paddingRight: 15,
     borderRadius: 30,
-    backgroundColor: '#fff',
     paddingVertical: 10,
   },
   buttonText: {
     fontSize: 16,
     textAlign: 'center',
     margin: 10,
-    color: '#92A3FD',
+    color: '#ffffff',
     fontWeight: 'bold',
-    backgroundColor: 'transparent',
   },
 });

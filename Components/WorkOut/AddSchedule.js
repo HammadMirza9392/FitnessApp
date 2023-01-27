@@ -15,7 +15,7 @@ import Modal from 'react-native-modal';
 
 const windowWidth = Dimensions.get('window').width;
 
-const AddSchedule = () => {
+const AddSchedule = ({navigation}) => {
   const [time, setTime] = useState(new Date());
   const [isModalVisible, setModalVisible] = useState(false);
 
@@ -180,7 +180,7 @@ const AddSchedule = () => {
 
         <TouchableOpacity
           style={styles.gradientButtonContainer}
-          onPress={() => navigation.navigate('Welcome')}>
+          onPress={() => navigation.navigate('MealPlanner')}>
           <LinearGradient
             start={{x: 0, y: 0}}
             end={{x: 1, y: 0}}
