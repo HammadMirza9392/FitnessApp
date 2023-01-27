@@ -145,7 +145,11 @@ const MealPlanner = ({navigation}) => {
           <Text style={[styles.heading, {marginLeft: 20}]}>
             Meal Nutritions
           </Text>
-          <View style={styles.dropdownbox}>
+          <LinearGradient
+            start={{x: 0, y: 0}}
+            end={{x: 1, y: 0}}
+            colors={['#9DCEFF', '#92A3FD']}
+            style={styles.dropdownbox}>
             <SelectList
               setSelected={val => setSelected(val)}
               data={days}
@@ -153,7 +157,6 @@ const MealPlanner = ({navigation}) => {
               boxStyles={{
                 borderWidth: 0,
                 width: 110,
-                // marginLeft: 20,
               }}
               inputStyles={styles.dropdowninpt}
               dropdownStyles={{borderWidth: 0}}
@@ -161,7 +164,7 @@ const MealPlanner = ({navigation}) => {
               placeholder="weekly"
               maxHeight={90}
             />
-          </View>
+          </LinearGradient>
         </View>
         <Image
           source={require('./../assets/GraphMeal.png')}
@@ -203,7 +206,12 @@ const MealPlanner = ({navigation}) => {
             },
           ]}>
           <Text style={[styles.heading, {marginLeft: 20}]}>Today Meals</Text>
-          <View style={styles.dropdownbox}>
+
+          <LinearGradient
+            start={{x: 0, y: 0}}
+            end={{x: 1, y: 0}}
+            colors={['#9DCEFF', '#92A3FD']}
+            style={styles.dropdownbox}>
             <SelectList
               setSelected={val => setSelected(val)}
               data={days}
@@ -211,7 +219,6 @@ const MealPlanner = ({navigation}) => {
               boxStyles={{
                 borderWidth: 0,
                 width: 110,
-                // marginLeft: 20,
               }}
               inputStyles={styles.dropdowninpt}
               dropdownStyles={{borderWidth: 0}}
@@ -219,7 +226,7 @@ const MealPlanner = ({navigation}) => {
               placeholder="weekly"
               maxHeight={90}
             />
-          </View>
+          </LinearGradient>
         </View>
         <View>
           <FlatList

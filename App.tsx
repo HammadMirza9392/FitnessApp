@@ -28,37 +28,53 @@ import ActivityTracker from './Components/Main/ActivityTracker';
 import Workout from './Components/WorkOut/Workout';
 import MealPlanner from './Components/MealPlanner/MealPlanner';
 
-
+const config = {
+  animation: 'spring',
+  config: {
+    stiffness: 1000,
+    damping: 500,
+    mass: 3,
+    overshootClamping: true,
+    restDisplacementThreshold: 0.01,
+    restSpeedThreshold: 0.01,
+  },
+};
 
 const App = () => {
   return (
     <NavigationContainer>
-    <Stack.Navigator initialRouteName='MealPlanner'>
+    <Stack.Navigator 
+    
+     screenOptions={{
+    headerShown: false,
+     presentation: 'transparentModal'
+   
+  }} >
 
-      <Stack.Screen name="SignUp" component={SignUp}  options={{headerShown:false}}/>
-      <Stack.Screen name="MealPlanner" component={MealPlanner}  options={{headerShown:false}}/>
+      <Stack.Screen name="SignUp" component={SignUp} />
+      <Stack.Screen name="MealPlanner" component={MealPlanner} />
       {/* <Stack.Screen name="ActivityTracker" component={ActivityTracker}  options={{headerShown:false}}/> */}
-      <Stack.Screen name="Workout" component={Workout}  options={{headerShown:false}}/>
-      <Stack.Screen name="WorkoutTracker" component={WorkoutTracker}  options={{headerShown:false}}/>
-      <Stack.Screen name="FullBodyWorkout" component={FullBodyWorkout}  options={{headerShown:false}}/>
-      <Stack.Screen name="AddSchedule" component={AddSchedule}  options={{headerShown:false}}/>
-      <Stack.Screen name="BottomNavigation" component={BottomNavigation}  options={{headerShown:false}}/>
-      <Stack.Screen name="Login" component={Login}  options={{headerShown:false}}/>
-      <Stack.Screen name="Welcome" component={Welcome}  options={{headerShown:false}}/>
-      <Stack.Screen name="WhatYourGoal1" component={WhatYourGoal1}  options={{headerShown:false}}/>
-      <Stack.Screen name="WhatYourGoal2" component={WhatYourGoal2}  options={{headerShown:false}}/> 
-      <Stack.Screen name="Home" component={Home}  options={{headerShown:false}}/>
+      <Stack.Screen name="Workout" component={Workout}  />
+      <Stack.Screen name="WorkoutTracker" component={WorkoutTracker}  />
+      <Stack.Screen name="FullBodyWorkout" component={FullBodyWorkout} />
+      <Stack.Screen name="AddSchedule" component={AddSchedule}  />
+      <Stack.Screen name="BottomNavigation" component={BottomNavigation} />
+      <Stack.Screen name="Login" component={Login}  />
+      <Stack.Screen name="Welcome" component={Welcome} />
+      <Stack.Screen name="WhatYourGoal1" component={WhatYourGoal1} />
+      <Stack.Screen name="WhatYourGoal2" component={WhatYourGoal2}  /> 
+      <Stack.Screen name="Home" component={Home}  />
       {/* <Stack.Screen name="FinishedWorkout" component={FinishedWorkout}  options={{headerShown:false}}/> */}
-      <Stack.Screen name="Chart" component={Chart}  options={{headerShown:false}}/>
+      <Stack.Screen name="Chart" component={Chart} />
       {/* <Stack.Screen name="Profile" component={Profile}  options={{headerShown:false}}/>
      
       <Stack.Screen name="Notification" component={Notification}  options={{headerShown:false}}/>
      */}
-      <Stack.Screen name="WhatYourGoal3" component={WhatYourGoal3}  options={{headerShown:false}}/>
-      <Stack.Screen name="CompleteProfile" component={CompleteProfile}  options={{headerShown:false}}/>
-      <Stack.Screen name="Welcome1" component={Welcome1} options={{headerShown:false}} />
-      <Stack.Screen name="Welcome2" component={Welcome2}  options={{headerShown:false}}/>
-      <Stack.Screen name="OnBoarding" component={OnBoardSlide}  options={{headerShown:false}}/>
+      <Stack.Screen name="WhatYourGoal3" component={WhatYourGoal3}/>
+      <Stack.Screen name="CompleteProfile" component={CompleteProfile}  />
+      <Stack.Screen name="Welcome1" component={Welcome1} />
+      <Stack.Screen name="Welcome2" component={Welcome2}/>
+      <Stack.Screen name="OnBoarding" component={OnBoardSlide}  />
 
     </Stack.Navigator>
   </NavigationContainer>

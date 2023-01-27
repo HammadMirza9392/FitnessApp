@@ -248,7 +248,11 @@ const Home = ({navigation}) => {
           <Text style={[styles.heading, {marginLeft: 20}]}>
             Workout Progress
           </Text>
-          <View style={styles.dropdownbox}>
+          <LinearGradient
+            start={{x: 0, y: 0}}
+            end={{x: 1, y: 0}}
+            colors={['#9DCEFF', '#92A3FD']}
+            style={styles.dropdownbox}>
             <SelectList
               setSelected={val => setSelected(val)}
               data={days}
@@ -256,7 +260,6 @@ const Home = ({navigation}) => {
               boxStyles={{
                 borderWidth: 0,
                 width: 110,
-                // marginLeft: 20,
               }}
               inputStyles={styles.dropdowninpt}
               dropdownStyles={{borderWidth: 0}}
@@ -264,7 +267,7 @@ const Home = ({navigation}) => {
               placeholder="weekly"
               maxHeight={90}
             />
-          </View>
+          </LinearGradient>
         </View>
         <Image
           source={require('./../assets/GraphHome.png')}

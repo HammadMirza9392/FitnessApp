@@ -9,7 +9,7 @@ import {
   View,
 } from 'react-native';
 import React, {useState} from 'react';
-//import LinearGradient from 'react-native-linear-gradient';
+import LinearGradient from 'react-native-linear-gradient';
 import {SelectList} from 'react-native-dropdown-select-list';
 import ProgressVerticalLine from '../Global/ProgressVerticalLine';
 
@@ -117,7 +117,11 @@ const ActivityTracker = () => {
           <Text style={[styles.ProgressMainText, {marginLeft: 20}]}>
             Workout Progress
           </Text>
-          <View style={styles.dropdownbox}>
+          <LinearGradient
+            start={{x: 0, y: 0}}
+            end={{x: 1, y: 0}}
+            colors={['#9DCEFF', '#92A3FD']}
+            style={styles.dropdownbox}>
             <SelectList
               setSelected={val => setSelected(val)}
               data={days}
@@ -125,7 +129,6 @@ const ActivityTracker = () => {
               boxStyles={{
                 borderWidth: 0,
                 width: 110,
-                // marginLeft: 20,
               }}
               inputStyles={styles.dropdowninpt}
               dropdownStyles={{borderWidth: 0}}
@@ -133,14 +136,14 @@ const ActivityTracker = () => {
               placeholder="weekly"
               maxHeight={90}
             />
-          </View>
+          </LinearGradient>
         </View>
 
         <ProgressVerticalLine />
 
         <View style={styles.LatestActivityContainer}>
           <View style={styles.latestActivityTopHeading}>
-            <Text style={styles.latestActivityMainText}>LasTestActivity</Text>
+            <Text style={styles.latestActivityMainText}>Latest Activity</Text>
             <Text style={styles.latestActivitySubText}> See More</Text>
           </View>
           <FlatList
