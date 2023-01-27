@@ -26,15 +26,17 @@ import FullBodyWorkout from './Components/WorkOut/FullBodyWorkout';
 import AddSchedule from './Components/WorkOut/AddSchedule';
 import ActivityTracker from './Components/Main/ActivityTracker';
 import Workout from './Components/WorkOut/Workout';
+import MealPlanner from './Components/MealPlanner/MealPlanner';
 
 
 
 const App = () => {
   return (
     <NavigationContainer>
-    <Stack.Navigator initialRouteName='AddSchedule'>
+    <Stack.Navigator initialRouteName='BottomNavigation'>
 
       <Stack.Screen name="SignUp" component={SignUp}  options={{headerShown:false}}/>
+      <Stack.Screen name="MealPlanner" component={MealPlanner}  options={{headerShown:false}}/>
       {/* <Stack.Screen name="ActivityTracker" component={ActivityTracker}  options={{headerShown:false}}/> */}
       <Stack.Screen name="Workout" component={Workout}  options={{headerShown:false}}/>
       <Stack.Screen name="WorkoutTracker" component={WorkoutTracker}  options={{headerShown:false}}/>

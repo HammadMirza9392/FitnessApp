@@ -8,9 +8,9 @@ import {
   FlatList,
   View,
 } from 'react-native';
-import React from 'react';
-import LinearGradient from 'react-native-linear-gradient';
-
+import React, {useState} from 'react';
+//import LinearGradient from 'react-native-linear-gradient';
+import {SelectList} from 'react-native-dropdown-select-list';
 import ProgressVerticalLine from '../Global/ProgressVerticalLine';
 
 const windowWidth = Dimensions.get('window').width;
@@ -29,6 +29,12 @@ const notifyData = [
 ];
 
 const ActivityTracker = () => {
+  const [SelectedVal, setSelected] = useState('');
+  const days = [
+    {key: 1, value: 'Weekly'},
+    {key: 2, value: 'Mothly'},
+    {key: 3, value: 'Yearly'},
+  ];
   const rendorActivity = item => {
     return (
       <View style={styles.ActivityContainer}>
@@ -108,8 +114,26 @@ const ActivityTracker = () => {
         </View>
 
         <View style={styles.progressHeadingContainer}>
-          <Text style={styles.ProgressMainText}>Activity Progress</Text>
-          <Text style={styles.latestActivitySubText}> See More</Text>
+          <Text style={[styles.ProgressMainText, {marginLeft: 20}]}>
+            Workout Progress
+          </Text>
+          <View style={styles.dropdownbox}>
+            <SelectList
+              setSelected={val => setSelected(val)}
+              data={days}
+              save="value"
+              boxStyles={{
+                borderWidth: 0,
+                width: 110,
+                // marginLeft: 20,
+              }}
+              inputStyles={styles.dropdowninpt}
+              dropdownStyles={{borderWidth: 0}}
+              dropdownTextStyles={styles.dropdowninptdrop}
+              placeholder="weekly"
+              maxHeight={90}
+            />
+          </View>
         </View>
 
         <ProgressVerticalLine />
@@ -255,14 +279,28 @@ const styles = StyleSheet.create({
   progressHeadingContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    width: windowWidth - 50,
+    width: windowWidth - 40,
     alignItems: 'center',
-    marginVertical: 10,
+    marginVertical: 20,
   },
   ProgressMainText: {
     color: '#000',
     margin: 10,
     fontSize: 20,
     fontWeight: 'bold',
+  },
+  dropdownbox: {
+    borderColor: '#97b7fe',
+    borderWidth: 1,
+    borderRadius: 40,
+    backgroundColor: '#97b7fe',
+    marginRight: 10,
+  },
+  dropdowninpt: {
+    color: '#fff',
+  },
+  dropdowninptdrop: {
+    color: '#fff',
+    width: 80,
   },
 });

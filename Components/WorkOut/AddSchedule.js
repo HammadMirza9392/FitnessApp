@@ -201,9 +201,6 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
   },
-  bodyContainer: {
-    //  alignItems: 'center',
-  },
   TopHeader: {
     width: windowWidth - 30,
     flexDirection: 'row',
@@ -211,7 +208,6 @@ const styles = StyleSheet.create({
     margin: 20,
     alignItems: 'center',
   },
-
   MainText: {
     color: '#000',
     fontWeight: 'bold',

@@ -7,15 +7,22 @@ import {
   Image,
   TouchableOpacity,
 } from 'react-native';
-import React from 'react';
+import React, {useState} from 'react';
 import LinearGradient from 'react-native-linear-gradient';
 import * as Progress from 'react-native-progress';
 import {DashedCircularIndicator} from 'rn-dashed-circular-indicator';
+import {SelectList} from 'react-native-dropdown-select-list';
 
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
 
 const Home = () => {
+  const [SelectedVal, setSelected] = useState('');
+  const days = [
+    {key: 1, value: 'Weekly'},
+    {key: 2, value: 'Mothly'},
+    {key: 3, value: 'Yearly'},
+  ];
   return (
     <View style={styles.mainContainer}>
       <ScrollView>
@@ -80,7 +87,7 @@ const Home = () => {
         </View>
 
         <View style={styles.headingContainer}>
-          <Text style={[styles.heading, {marginLeft: 30}]}>
+          <Text style={[styles.heading, {marginLeft: 30, marginVertical: 20}]}>
             Activity Status
           </Text>
           <Image
@@ -229,24 +236,51 @@ const Home = () => {
           </View>
         </View>
 
-        <View style={styles.headingContainer}>
-          <Text style={[styles.heading, {marginLeft: 30}]}>
+        <View
+          style={[
+            styles.headingContainer,
+            {
+              flexDirection: 'row',
+              justifyContent: 'space-between',
+              alignItems: 'center',
+            },
+          ]}>
+          <Text style={[styles.heading, {marginLeft: 20}]}>
             Workout Progress
           </Text>
-          <Image
-            source={require('./../assets/GraphHome.png')}
-            style={{
-              // width: '90%',
-              height: 180,
-              alignSelf: 'center',
-              resizeMode: 'contain',
-              marginTop: 20,
-            }}
-          />
+          <View style={styles.dropdownbox}>
+            <SelectList
+              setSelected={val => setSelected(val)}
+              data={days}
+              save="value"
+              boxStyles={{
+                borderWidth: 0,
+                width: 110,
+                // marginLeft: 20,
+              }}
+              inputStyles={styles.dropdowninpt}
+              dropdownStyles={{borderWidth: 0}}
+              dropdownTextStyles={styles.dropdowninptdrop}
+              placeholder="weekly"
+              maxHeight={90}
+            />
+          </View>
         </View>
+        <Image
+          source={require('./../assets/GraphHome.png')}
+          style={{
+            // width: '90%',
+            height: 180,
+            alignSelf: 'center',
+            resizeMode: 'contain',
+            marginTop: 20,
+          }}
+        />
 
         <View style={styles.headingContainer}>
-          <Text style={[styles.heading, {marginLeft: 30}]}>Latest Workout</Text>
+          <Text style={[styles.heading, {marginLeft: 30, marginTop: 20}]}>
+            Latest Workout
+          </Text>
         </View>
         <View style={{width: windowWidth - 20, margin: 10}}>
           <View style={styles.ActivityContainer}>
@@ -450,7 +484,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   checkContainer: {
-    backgroundColor: '#C3CEFE',
+    backgroundColor: '#eaf0ff',
     width: windowWidth - 50,
     flexDirection: 'row',
     justifyContent: 'space-between',
@@ -486,7 +520,7 @@ const styles = StyleSheet.create({
   },
   heading: {
     color: '#000',
-    fontSize: 22,
+    fontSize: 20,
     fontWeight: 'bold',
   },
   intakeSleepContainer: {
@@ -567,5 +601,19 @@ const styles = StyleSheet.create({
   ActivityImgMore: {
     width: 25,
     height: 25,
+  },
+  dropdownbox: {
+    borderColor: '#97b7fe',
+    borderWidth: 1,
+    borderRadius: 40,
+    backgroundColor: '#97b7fe',
+    marginRight: 10,
+  },
+  dropdowninpt: {
+    color: '#fff',
+  },
+  dropdowninptdrop: {
+    color: '#fff',
+    width: 80,
   },
 });
