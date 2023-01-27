@@ -6,15 +6,22 @@ import {
   Text,
   View,
   Dimensions,
+  Button,
 } from 'react-native';
 import React, {useState} from 'react';
 import DateTimePicker from '@mohalla-tech/react-native-date-time-picker';
 import LinearGradient from 'react-native-linear-gradient';
+import Modal from 'react-native-modal';
 
 const windowWidth = Dimensions.get('window').width;
 
 const AddSchedule = () => {
   const [time, setTime] = useState(new Date());
+  const [isModalVisible, setModalVisible] = useState(false);
+
+  const toggleModal = () => {
+    setModalVisible(!isModalVisible);
+  };
 
   //   console.log('seletecd hours are ', time.getHours());
   //   console.log('seletecd minutes are ', time.getMinutes());
@@ -23,7 +30,7 @@ const AddSchedule = () => {
       <View style={styles.bodyContainer}>
         <View style={styles.TopHeader}>
           <Image
-            source={require('./../assets/Back-Navs.png')}
+            source={require('./../assets/Close-Navs.png')}
             style={{width: 40, height: 40}}
           />
           <Text style={styles.MainText}>Add Schedule</Text>
@@ -35,7 +42,6 @@ const AddSchedule = () => {
             />
           </TouchableOpacity>
         </View>
-
         <View style={styles.topDateContainer}>
           <Image
             source={require('./../assets/Calendar.png')}
@@ -43,11 +49,9 @@ const AddSchedule = () => {
           />
           <Text style={{color: '#000'}}>Thu, 27 May 2021</Text>
         </View>
-
         <View style={[styles.headingContainer]}>
           <Text style={styles.heading}>Time</Text>
         </View>
-
         <View style={styles.timeContainer}>
           <DateTimePicker
             mode="time"
@@ -55,12 +59,12 @@ const AddSchedule = () => {
             onChange={time => setTime(time)}
           />
         </View>
-
         <View style={[styles.headingContainer]}>
           <Text style={styles.heading}>Details Workout</Text>
         </View>
-
-        <TouchableOpacity style={styles.workDityContainer}>
+        <TouchableOpacity
+          style={styles.workDityContainer}
+          onPress={toggleModal}>
           <View style={styles.workDityInnerContainer}>
             <Image
               source={require('./../assets/barbel1.png')}
@@ -76,6 +80,53 @@ const AddSchedule = () => {
             />
           </View>
         </TouchableOpacity>
+
+        <Modal isVisible={isModalVisible}>
+          <View style={styles.ModalContainer}>
+            <View style={styles.ModalTopHeader}>
+              <TouchableOpacity onPress={toggleModal}>
+                <Image
+                  source={require('./../assets/Close-Navs.png')}
+                  style={{width: 40, height: 40}}
+                />
+              </TouchableOpacity>
+              <Text style={styles.ModalMainText}>Workout Schedule</Text>
+              <TouchableOpacity
+                onPress={() => navigation.navigate('FinishedWorkout')}>
+                <Image
+                  source={require('./../assets/Detail-Navs.png')}
+                  style={{width: 40, height: 40}}
+                />
+              </TouchableOpacity>
+            </View>
+            <View
+              style={[
+                styles.headingContainer,
+                {marginBottom: 10, marginTop: 10},
+              ]}>
+              <Text style={styles.heading}>Lower Body Workout</Text>
+            </View>
+            <View style={styles.topDateContainer}>
+              <Image
+                source={require('./../assets/TimeCircle.png')}
+                style={styles.dateIcon}
+              />
+              <Text style={{color: '#000'}}>Today | 03:00PM</Text>
+            </View>
+
+            <TouchableOpacity
+              style={styles.ModalButtonContainer}
+              onPress={toggleModal}>
+              <LinearGradient
+                start={{x: 0, y: 0}}
+                end={{x: 1, y: 0}}
+                colors={['#9DCEFF', '#92A3FD']}
+                style={styles.ModallinearGradient}>
+                <Text style={styles.ModalbuttonText}>Mark as Complete</Text>
+              </LinearGradient>
+            </TouchableOpacity>
+          </View>
+        </Modal>
 
         <TouchableOpacity style={styles.workDityContainer}>
           <View style={styles.workDityInnerContainer}>
@@ -102,6 +153,7 @@ const AddSchedule = () => {
             />
             <Text style={styles.workDityText}>Custom Repetitions</Text>
           </View>
+
           <View style={styles.workDityInnerContainer}>
             <Image
               source={require('./../assets/Icon-Arrow.png')}
@@ -157,6 +209,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     margin: 20,
+    alignItems: 'center',
   },
 
   MainText: {
@@ -223,6 +276,44 @@ const styles = StyleSheet.create({
   },
   buttonText: {
     fontSize: 18,
+    textAlign: 'center',
+    margin: 10,
+    color: '#ffffff',
+    fontWeight: 'bold',
+  },
+  ModalContainer: {
+    height: 300,
+    backgroundColor: '#fff',
+    borderRadius: 20,
+    padding: 30,
+  },
+  ModalTopHeader: {
+    width: '100%',
+    alignSelf: 'center',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    margin: 20,
+    alignItems: 'center',
+  },
+
+  ModalMainText: {
+    color: '#000',
+    fontWeight: 'bold',
+    fontSize: 20,
+  },
+  ModalButtonContainer: {
+    width: windowWidth - 80,
+    marginTop: 20,
+    alignSelf: 'center',
+  },
+  ModallinearGradient: {
+    paddingLeft: 15,
+    paddingRight: 15,
+    borderRadius: 30,
+    paddingVertical: 5,
+  },
+  ModalbuttonText: {
+    fontSize: 16,
     textAlign: 'center',
     margin: 10,
     color: '#ffffff',

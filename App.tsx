@@ -32,7 +32,7 @@ import Workout from './Components/WorkOut/Workout';
 const App = () => {
   return (
     <NavigationContainer>
-    <Stack.Navigator initialRouteName='Home'>
+    <Stack.Navigator initialRouteName='AddSchedule'>
 
       <Stack.Screen name="SignUp" component={SignUp}  options={{headerShown:false}}/>
       {/* <Stack.Screen name="ActivityTracker" component={ActivityTracker}  options={{headerShown:false}}/> */}
