@@ -52,7 +52,7 @@ const BottomNavigation = () => {
         component={ActivityTracker}
         options={{
           headerShown: false,
-          tabBarIcon: ({color}) => (
+          tabBarIcon: () => (
             <LinearGradient
               start={{x: 0, y: 0}}
               end={{x: 1, y: 0}}

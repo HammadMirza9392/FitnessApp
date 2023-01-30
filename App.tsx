@@ -29,6 +29,7 @@ import OnBoarding3 from './Components/OnBoarding/OnBoarding3';
 import OnBoarding4 from './Components/OnBoarding/OnBoarding4';
 import Splash1 from './Components/OnBoarding/Splash1';
 import Splash2 from './Components/OnBoarding/Splash2';
+import BlueBerryPanCake from './Components/MealPlanner/BlueBerryPanCake';
 
 const config = {
   animation: 'spring',
@@ -45,7 +46,7 @@ const config = {
 const App = () => {
   return (
     <NavigationContainer>
-    <Stack.Navigator initialRouteName='Splash1'
+    <Stack.Navigator initialRouteName='Chart'
      screenOptions={{
     headerShown: false,
      presentation: 'transparentModal'
@@ -75,6 +76,7 @@ const App = () => {
 
       <Stack.Screen name="MealPlanner" component={MealPlanner} />
       <Stack.Screen name="BreakFast" component={BreakFast} />
+      <Stack.Screen name="BlueBerryPanCake" component={BlueBerryPanCake} />
       
       <Stack.Screen name="Chart" component={Chart} />
      

@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@mohalla-tech/react-native-date-time-picker": "^2.0.1",
+    "@react-native-picker/picker": "^2.4.8",
     "@react-navigation/bottom-tabs": "^6.5.3",
     "@react-navigation/native": "^6.1.2",
     "@react-navigation/native-stack": "^6.9.8",
@@ -20,6 +21,7 @@
     "react-native-dropdown-select-list": "^2.0.4",
     "react-native-linear-gradient": "^2.6.2",
     "react-native-modal": "^13.0.1",
+    "react-native-modern-datepicker": "^1.0.0-beta.91",
     "react-native-onboarding-swiper": "^1.2.0",
     "react-native-progress": "^5.0.0",
     "react-native-progress-circle": "^2.1.0",
