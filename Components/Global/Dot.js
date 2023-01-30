@@ -1,14 +1,14 @@
 import {StyleSheet, Text, View} from 'react-native';
 import React from 'react';
 
-const Dot = () => {
+const Dot = ({bgColor, borderColor}) => {
   return (
-    <View style={styles.mainContgainer}>
+    <View style={[styles.mainContainer, {borderColor: borderColor}]}>
       <View
         style={{
           height: 14,
           width: 14,
-          backgroundColor: '#C58BF2',
+          backgroundColor: bgColor,
           borderRadius: 60,
         }}></View>
     </View>
@@ -18,8 +18,7 @@ const Dot = () => {
 export default Dot;
 
 const styles = StyleSheet.create({
-  mainContgainer: {
-    borderColor: '#C58BF2',
+  mainContainer: {
     borderWidth: 2,
     backgroundColor: '#fff',
     borderRadius: 90,

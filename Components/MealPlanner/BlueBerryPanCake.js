@@ -189,7 +189,7 @@ const BlueBerryPanCake = ({navigation}) => {
               <View style={{flexDirection: 'row'}}>
                 <View style={{flexDirection: 'row'}}>
                   <Text style={{color: '#C58BF2', fontSize: 18}}>01</Text>
-                  <Dot />
+                  <Dot bgColor="#C58BF2" borderColor="#C58BF2" />
                 </View>
                 <View
                   style={{
@@ -212,12 +212,12 @@ const BlueBerryPanCake = ({navigation}) => {
             <View style={[styles.setpsContainer, {marginTop: -10}]}>
               <View style={{flexDirection: 'row'}}>
                 <View style={{flexDirection: 'row'}}>
-                  <Text style={{color: '#C58BF2', fontSize: 18}}>02</Text>
-                  <Dot />
+                  <Text style={{color: '#ADA4A5', fontSize: 18}}>02</Text>
+                  <Dot bgColor="#ADA4A5" borderColor="#ADA4A5" />
                 </View>
                 <View
                   style={{
-                    borderLeftColor: '#C58BF2',
+                    borderLeftColor: '#ADA4A5',
                     borderLeftWidth: 1,
                     paddingLeft: 20,
                     borderStyle: 'dashed',
@@ -236,12 +236,12 @@ const BlueBerryPanCake = ({navigation}) => {
             <View style={[styles.setpsContainer, {marginTop: -10}]}>
               <View style={{flexDirection: 'row'}}>
                 <View style={{flexDirection: 'row'}}>
-                  <Text style={{color: '#C58BF2', fontSize: 18}}>03</Text>
-                  <Dot />
+                  <Text style={{color: '#ADA4A5', fontSize: 18}}>03</Text>
+                  <Dot bgColor="#ADA4A5" borderColor="#ADA4A5" />
                 </View>
                 <View
                   style={{
-                    borderLeftColor: '#C58BF2',
+                    borderLeftColor: '#ADA4A5',
                     borderLeftWidth: 1,
                     paddingLeft: 20,
                     borderStyle: 'dashed',
@@ -261,12 +261,12 @@ const BlueBerryPanCake = ({navigation}) => {
             <View style={[styles.setpsContainer, {marginTop: -10}]}>
               <View style={{flexDirection: 'row'}}>
                 <View style={{flexDirection: 'row'}}>
-                  <Text style={{color: '#C58BF2', fontSize: 18}}>04</Text>
-                  <Dot />
+                  <Text style={{color: '#ADA4A5', fontSize: 18}}>04</Text>
+                  <Dot bgColor="#ADA4A5" borderColor="#ADA4A5" />
                 </View>
                 <View
                   style={{
-                    borderLeftColor: '#C58BF2',
+                    borderLeftColor: '#ADA4A5',
                     borderLeftWidth: 1,
                     paddingLeft: 20,
                     borderStyle: 'dashed',
@@ -286,8 +286,8 @@ const BlueBerryPanCake = ({navigation}) => {
             <View style={[styles.setpsContainer, {marginTop: -10}]}>
               <View style={{flexDirection: 'row'}}>
                 <View style={{flexDirection: 'row'}}>
-                  <Text style={{color: '#C58BF2', fontSize: 18}}>05</Text>
-                  <Dot />
+                  <Text style={{color: '#ADA4A5', fontSize: 18}}>05</Text>
+                  <Dot bgColor="#ADA4A5" borderColor="#ADA4A5" />
                 </View>
                 <View
                   style={{

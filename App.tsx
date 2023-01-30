@@ -30,6 +30,9 @@ import OnBoarding4 from './Components/OnBoarding/OnBoarding4';
 import Splash1 from './Components/OnBoarding/Splash1';
 import Splash2 from './Components/OnBoarding/Splash2';
 import BlueBerryPanCake from './Components/MealPlanner/BlueBerryPanCake';
+import Udummy from './Components/Exercise/Udummy';
+import MealSchedule from './Components/MealPlanner/MealSchedule';
+import SleepTracker from './Components/SleepTracker/SleepTracker';
 
 const config = {
   animation: 'spring',
@@ -46,7 +49,7 @@ const config = {
 const App = () => {
   return (
     <NavigationContainer>
-    <Stack.Navigator initialRouteName='Chart'
+    <Stack.Navigator initialRouteName='SleepTracker'
      screenOptions={{
     headerShown: false,
      presentation: 'transparentModal'
@@ -77,8 +80,13 @@ const App = () => {
       <Stack.Screen name="MealPlanner" component={MealPlanner} />
       <Stack.Screen name="BreakFast" component={BreakFast} />
       <Stack.Screen name="BlueBerryPanCake" component={BlueBerryPanCake} />
+      <Stack.Screen name="MealSchedule" component={MealSchedule} />
+
+      <Stack.Screen name="SleepTracker" component={SleepTracker} />
+
       
       <Stack.Screen name="Chart" component={Chart} />
+      <Stack.Screen name="Udummy" component={Udummy} />
      
 
     </Stack.Navigator>

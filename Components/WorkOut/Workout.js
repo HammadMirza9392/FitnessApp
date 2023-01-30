@@ -102,7 +102,7 @@ const Workout = ({navigation}) => {
           <View style={{flexDirection: 'row'}}>
             <View style={{flexDirection: 'row'}}>
               <Text style={{color: '#C58BF2', fontSize: 18}}>01</Text>
-              <Dot />
+              <Dot bgColor="#C58BF2" borderColor="#C58BF2" />
             </View>
             <View
               style={{
@@ -126,7 +126,7 @@ const Workout = ({navigation}) => {
           <View style={{flexDirection: 'row'}}>
             <View style={{flexDirection: 'row'}}>
               <Text style={{color: '#C58BF2', fontSize: 18}}>02</Text>
-              <Dot />
+              <Dot bgColor="#C58BF2" borderColor="#C58BF2" />
             </View>
             <View
               style={{
@@ -150,7 +150,7 @@ const Workout = ({navigation}) => {
           <View style={{flexDirection: 'row'}}>
             <View style={{flexDirection: 'row'}}>
               <Text style={{color: '#C58BF2', fontSize: 18}}>03</Text>
-              <Dot />
+              <Dot bgColor="#C58BF2" borderColor="#C58BF2" />
             </View>
             <View
               style={{
@@ -174,7 +174,7 @@ const Workout = ({navigation}) => {
           <View style={{flexDirection: 'row'}}>
             <View style={{flexDirection: 'row'}}>
               <Text style={{color: '#C58BF2', fontSize: 18}}>04</Text>
-              <Dot />
+              <Dot bgColor="#C58BF2" borderColor="#C58BF2" />
             </View>
             <View
               style={{

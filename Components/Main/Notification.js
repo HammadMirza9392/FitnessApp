@@ -85,6 +85,7 @@ const Notification = ({navigation}) => {
         </View>
 
         <FlatList
+          keyExtractor={itemKey => itemKey.Heading}
           data={notifyData}
           renderItem={({item}) => rendorItem(item)}
           style={{width: '100%'}}
