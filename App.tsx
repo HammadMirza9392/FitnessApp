@@ -1,55 +1,48 @@
-import { StyleSheet, Text, View } from 'react-native'
-import React, { useState } from 'react'
+
+import React from 'react'
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
 const Stack = createNativeStackNavigator();
 
-import SignUp from './Components/FormScreens/SignUp';
-import CompleteProfile from './Components/FormScreens/CompleteProfile';
-import WhatYourGoal1 from './Components/WhatYourGoal/WhatYourGoal1';
-import WhatYourGoal2 from './Components/WhatYourGoal/WhatYourGoal2';
-import WhatYourGoal3 from './Components/WhatYourGoal/WhatYourGoal3';
-import Login from './Components/FormScreens/Login';
-import Welcome from './Components/WhatYourGoal/Welcome';
+import SignUp from './src/screens/formscreens/SignUp';
+import Login from './src/screens/formscreens/Login';
+import CompleteProfile from './src/screens/formscreens/CompleteProfile';
+import WhatYourGoal1 from './src/screens/whatyourgoal/WhatYourGoal1';
+import WhatYourGoal2 from './src/screens/whatyourgoal/WhatYourGoal2';
+import WhatYourGoal3 from './src/screens/whatyourgoal/WhatYourGoal3';
 
-import BottomNavigation from './Components/Global/BottomNavigation';
+import Welcome from './src/screens/whatyourgoal/Welcome';
 
-import Chart from './Components/Global/Chart';
-import WorkoutTracker from './Components/WorkOut/WorkoutTracker';
-import FullBodyWorkout from './Components/WorkOut/FullBodyWorkout';
-import AddSchedule from './Components/WorkOut/AddSchedule';
+import BottomNavigation from './src/screens/global/BottomNavigation';
+import Chart from './src/screens/global/Chart';
 
-import Workout from './Components/WorkOut/Workout';
-import MealPlanner from './Components/MealPlanner/MealPlanner';
-import BreakFast from './Components/MealPlanner/BreakFast';
-import OnBoarding1 from './Components/OnBoarding/OnBoarding1';
-import OnBoarding2 from './Components/OnBoarding/OnBoarding2';
-import OnBoarding3 from './Components/OnBoarding/OnBoarding3';
-import OnBoarding4 from './Components/OnBoarding/OnBoarding4';
-import Splash1 from './Components/OnBoarding/Splash1';
-import Splash2 from './Components/OnBoarding/Splash2';
-import BlueBerryPanCake from './Components/MealPlanner/BlueBerryPanCake';
-import Udummy from './Components/Exercise/Udummy';
-import MealSchedule from './Components/MealPlanner/MealSchedule';
-import SleepTracker from './Components/SleepTracker/SleepTracker';
+import WorkoutTracker from './src/screens/workout/WorkoutTracker';
+import FullBodyWorkout from './src/screens/workout/FullBodyWorkout';
+import AddSchedule from './src/screens/workout/AddSchedule';
+import Workout from './src/screens/workout/Workout';
 
-const config = {
-  animation: 'spring',
-  config: {
-    stiffness: 1000,
-    damping: 500,
-    mass: 3,
-    overshootClamping: true,
-    restDisplacementThreshold: 0.01,
-    restSpeedThreshold: 0.01,
-  },
-};
+import MealPlanner from './src/screens/mealplanner/MealPlanner';
+import BreakFast from './src/screens/mealplanner/BreakFast';
+import BlueBerryPanCake from './src/screens/mealplanner/BlueBerryPanCake';
+import MealSchedule from './src/screens/mealplanner/MealSchedule';
+
+import OnBoarding1 from './src/screens/onboarding/OnBoarding1';
+import OnBoarding2 from './src/screens/onboarding/OnBoarding2';
+import OnBoarding3 from './src/screens/onboarding/OnBoarding3';
+import OnBoarding4 from './src/screens/onboarding/OnBoarding4';
+import Splash1 from './src/screens/onboarding/Splash1';
+import Splash2 from './src/screens/onboarding/Splash2';
+
+
+import Udummy from './src/screens/exercise/Udummy';
+
+import SleepTracker from './src/screens/sleeptracker/SleepTracker';
 
 const App = () => {
   return (
     <NavigationContainer>
-    <Stack.Navigator initialRouteName='SleepTracker'
+    <Stack.Navigator initialRouteName='BreakFast'
      screenOptions={{
     headerShown: false,
      presentation: 'transparentModal'
@@ -96,4 +89,3 @@ const App = () => {
 
 export default App
 
-const styles = StyleSheet.create({})
